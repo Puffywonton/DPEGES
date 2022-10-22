@@ -1,5 +1,5 @@
 import './style.css'
-import { gpedpe } from './gpedpe'
+import { dpe } from './gpedpe'
 
 document.querySelector('#app').innerHTML = `
     <div id="dpe"></div>
