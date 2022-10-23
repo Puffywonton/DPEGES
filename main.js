@@ -1,5 +1,5 @@
 import './style.css'
-import { gpedpe } from './gpedpe'
+import { dpe } from './dpe'
 
 document.querySelector('#app').innerHTML = `
     <div id="dpe"></div>
@@ -7,6 +7,6 @@ document.querySelector('#app').innerHTML = `
     <div id="dpe3"></div>
 `
 
-gpedpe('dpe', 500)
-gpedpe('dpe2', 92)
-gpedpe('dpe3', 21)
+dpe('dpe', 500)
+dpe('dpe2', 92)
+dpe('dpe3', 21)
