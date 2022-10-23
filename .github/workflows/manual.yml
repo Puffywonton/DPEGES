@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Github Page Deploy
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -18,19 +18,21 @@ jobs:
         steps:
             - name: Fetch repo
               uses: actions/checkout@v2
+
             - name: Setup Node
               uses: actions/setup-node@v1
               with:
                   node-version: "14.x"
-            - name: Git config
-              run: |
-                  git config --global user.name "Puffywonton"
-                  git config --global user.email "Puffywonton@github.io"
+
             - name: Install Dependencies
               run: npm install
-            - name: Run deploy script
-              run: ./deploy.sh
-              shell: bash
-            # Runs a single command using the runners shell
-            - name: Send greeting
-              run: echo "Hello ${{ github.event.inputs.name }}"
+
+            - name: Build
+              run: npm run build
+
+            - name: "Deploy Github Pages"
+              uses: JamesIves/github-pages-deploy-action@3.7.1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages # <- Branche sur laquelle seront commités les fichiers
+                  FOLDER: build/
