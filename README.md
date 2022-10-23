@@ -8,3 +8,13 @@ Avec le DPEGPE, entrez simplement la valeur du dpe/gpe, nous nous occupons de to
 
 Essayez le DPEGPE, great sucess! :D
 
+# TODO
+
+- GES/GPE
+- build & push npm
+- ajouter les légendes (puissance)
+- générer une PNG/SVG
+- norme 2022 : emission CO²
+- rajouter les input width & height
+- écrire la documentation
+- créer github page de demo
