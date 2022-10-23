@@ -4,8 +4,6 @@
 }
 
 .bar {
-  width: 50px;
-  background: blue;
   height: 50px;
   margin-top: 2px;
   margin-right: 2px;
@@ -20,7 +18,7 @@
   z-index: 3;
 }
 
-.bar::after {
+.dpe-bar::after {
   content: "";
   position: absolute;
   right: -25px;
@@ -30,7 +28,6 @@
   border-left: 25px solid var(--color);
   border-top: 25px solid transparent;
   border-bottom: 25px solid transparent;
-
 }
 
 .bars-container {
@@ -54,15 +51,24 @@
   margin-bottom: 10px;
   position: relative;
   background-color: blue;
-  height: 100%;
   z-index: 2;
   font-size: 1.5rem;
-  padding: 5px;
+  padding: 10px;
   color: white;
   background-color: black;
 }
 
-.indicateur::after {
+/* .indicateur::after {
+  content: '';
+  width: 1000px;
+  left: -1000px;
+  border-bottom: 1px dashed black;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+} */
+
+.indicateur::before {
   content: '';
   width: 1000px;
   left: -1000px;
@@ -71,3 +77,22 @@
   top: 50%;
   z-index: 1;
 }
+
+.indicateur::after {
+  content: "";
+  position: absolute;
+  right: 47px;
+  bottom: 0;
+  border-right: 24px solid black;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+}
+
+.indicateur-legend {
+  color: black;
+  position: absolute;
+  font-size: 0.9rem;
+  top: 50px;
+  left: -20px;
+}
+

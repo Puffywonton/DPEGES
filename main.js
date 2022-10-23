@@ -1,12 +1,11 @@
 import './style.css'
 import { dpe } from './dpe'
+import { ges } from './ges'
 
 document.querySelector('#app').innerHTML = `
     <div id="dpe"></div>
-    <div id="dpe2"></div>
-    <div id="dpe3"></div>
+    <div id="ges"></div>
 `
 
-dpe('dpe', 500)
-dpe('dpe2', 92)
-dpe('dpe3', 21)
+dpe('dpe', 92)
+ges('ges', 40)
