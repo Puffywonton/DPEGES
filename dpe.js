@@ -1,5 +1,5 @@
 
-export function gpedpe (containerId, value){
+export function dpe (containerId, value){
 // input
 // possibles inputs : 
 // - space between bars 
