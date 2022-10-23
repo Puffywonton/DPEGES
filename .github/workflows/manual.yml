@@ -23,7 +23,9 @@ jobs:
               with:
                   node-version: "14.x"
             - name: Git config
-              run: git config --global user.name "Puffywonton" & git config --global user.email "Puffywonton@github.io"
+              run: |
+                  git config --global user.name "Puffywonton"
+                  git config --global user.email "Puffywonton@github.io"
             - name: Install Dependencies
               run: npm install
             - name: Run deploy script
