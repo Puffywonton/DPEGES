@@ -2,6 +2,7 @@ import './style.css'
 import { dpe } from './dpe'
 
 document.querySelector('#app').innerHTML = `
+    <h1>DPE / GES</h1>
     <div id="dpe"></div>
     <div id="dpe2"></div>
     <div id="dpe3"></div>
