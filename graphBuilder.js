@@ -42,7 +42,6 @@ const graphBuilder = (containerId, value, datas, type) => {
                     kWh<sub>EP</sub>/m<sup>2</sup>.an
                 `
             }
-            
             indicatorLegend.classList.add("indicateur-legend")
             indicator.appendChild(indicatorLegend)
             barContainer.append(indicator);
