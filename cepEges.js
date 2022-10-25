@@ -2,8 +2,8 @@ import { arrowBuilder } from "./arrowBuilder";
 import { barBuilder } from "./barBuilder";
 
 const cepEges = (containerId) => {
-    let cepValue = 190;
-    let egesValue = 4;
+    let cepValue = 216;
+    let egesValue = 52;
 
     const cepEgesDatas = [
         {
@@ -95,13 +95,33 @@ const cepEges = (containerId) => {
             let focusInfo = document.createElement("div")
             focusInfo.classList.add("focus-info")
             barContainer.appendChild(focusInfo)
-            let dpeInfo = document.createElement("span")
+            let dpeInfo = document.createElement("div")
             dpeInfo.classList.add("dpe-info")
-            dpeInfo.innerHTML = cepValue
+            let dpeSpan = document.createElement("span")
+            dpeSpan.classList.add("span")
+            dpeSpan.innerHTML = cepValue
+            dpeInfo.appendChild(dpeSpan)
+            let dpeLegend = document.createElement("span")
+            dpeLegend.classList.add("legend")
+            dpeLegend.innerHTML = 
+                `
+                    kWh/m<sup>2</sup>.an
+                `;
+            dpeInfo.appendChild(dpeLegend)
             focusInfo.appendChild(dpeInfo)
-            let gesInfo = document.createElement("span")
+            let gesInfo = document.createElement("div")
             gesInfo.classList.add("ges-info")
-            gesInfo.innerHTML = egesValue
+            let gesSpan = document.createElement("span")
+            gesSpan.classList.add("span")
+            gesSpan.innerHTML = egesValue
+            gesInfo.appendChild(gesSpan)
+            let gesLegend = document.createElement("span")
+            gesLegend.classList.add("legend")
+            gesLegend.innerHTML = 
+                `
+                  kgCO<sub>2</sub>/m<sup>2</sup>.an  
+                `;
+            gesInfo.appendChild(gesLegend)
             focusInfo.appendChild(gesInfo)
         }else{
             barContainer.classList.add("container-nofocus")

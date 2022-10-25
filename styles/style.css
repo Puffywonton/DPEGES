@@ -93,23 +93,44 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-
-.dpe-info {
-  color: green;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-.dpe-info:after {
+.focus-info:after {
   content: "";
-  position: absolute;
   background-color: black;
   width: 2px;
-  height: 80%;
+  height: 90%;
+}
+.focus-info.focus-info :nth-child(2) {
+  order: 3;
+}
+
+.dpe-info {
+  color: black;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ges-info {
-  color: orange;
+  color: black;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.span {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.legend {
+  font-size: 0.4rem;
+  font-weight: bold;
 }
 
 .focus {
