@@ -3,19 +3,61 @@
   font-family: sans-serif;
 }
 
-.bar {
-  height: 50px;
-  margin-top: 2px;
-  margin-right: 2px;
+.temp {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.cepeges {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border: 1px solid black;
+}
+.cepeges::before {
+  content: "";
+  background-color: pink;
+  width: 150px;
+  height: 500px;
+  position: absolute;
+  z-index: 0;
+}
+
+.over-ride {
+  height: 60px;
+}
+
+.test {
+  height: 40px;
+}
+
+.pizza {
+  background-color: black;
+}
+
+.curry {
+  background-color: transparent;
+}
+
+.bar-container {
   margin-bottom: 10px;
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 25px;
-  padding-right: 10px;
+  background-color: transparent;
   font-weight: bold;
-  z-index: 3;
+}
+
+.bar {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  clip-path: polygon(0 0, 90% 0%, 95% 50%, 90% 100%, 0 100%);
+  border: 2px solid transparent;
+}
+.bar:after {
+  content: "";
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .focus {
@@ -48,12 +90,6 @@
   font-size: 2rem;
 }
 
-.bar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .indicateur {
   margin-top: 2px;
   margin-bottom: 10px;
@@ -75,9 +111,8 @@
   top: 50%;
   z-index: 1;
 } */
-
 .indicateur::before {
-  content: '';
+  content: "";
   width: 230px;
   left: -250px;
   border-bottom: 1px dashed black;
@@ -104,3 +139,4 @@
   left: -20px;
 }
 
+/*# sourceMappingURL=style.css.map */

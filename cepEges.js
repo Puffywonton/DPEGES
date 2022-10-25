@@ -1,3 +1,6 @@
+import { arrowBuilder } from "./arrowBuilder";
+import { barBuilder } from "./barBuilder";
+
 const cepEges = (containerId) => {
     let cepValue = 216;
     let egesValue = 50;
@@ -63,35 +66,60 @@ const cepEges = (containerId) => {
     let containerElement = document.getElementById(containerId)
     let stickerContainer = document.createElement("div");
     stickerContainer.classList.add('sticker-container')
-    let size = 15;
+    let size = 0;
     for(let data of cepEgesDatas) {
+        // stickerContainer.append(barBuilder());
         let barContainer = document.createElement("div");
         barContainer.classList.add('bar-container');
+        // barContainer.style.width = "50%";
         barContainer.style.width =  size + "%";
-        size  = size+5;
+        barContainer.style.transform = `translateX(`+size+`px)`;
+        if(data.letter === "C"){
+            barContainer.classList.add("over-ride")
+        }else{
+            barContainer.classList.add("test")
+        }
+        size  = size+24;
+        // barContainer.appendChild(arrowBuilder())
         let bar = document.createElement("div");
         bar.classList.add('bar')
         bar.classList.add(data.letter + '-bar')
-        bar.style.backgroundColor = data.color;
-        bar.style.setProperty('--color', data.color);
-        let barLetter = document.createElement("span");
-        barLetter.innerHTML = data.letter;
-        barLetter.classList.add('letter')
-        bar.append(barLetter);
+        // bar.style.backgroundColor = data.color;
+        // bar.style.setProperty('--color', data.color);
+        // let barLetter = document.createElement("span");
+        // barLetter.innerHTML = data.letter;
+        // barLetter.classList.add('letter')
+        // bar.append(barLetter);
+        const element = document.createElement("style")
+        element.innerHTML =
+            `
+                .`+data.letter+`-bar::after {
+                    clip-path: polygon(0 0, 90% 0%, 95% 50%, 90% 100%, 0 100%);
+                    background-color: `+data.color+`;
+                }
+
+            `;
+        bar.appendChild(element)
+        if(data.letter === "C"){
+            bar.classList.add("pizza")
+            console.log("TELLSt")
+        }else{
+            bar.classList.add("curry")
+        }
         barContainer.append(bar);
         stickerContainer.append(barContainer);
-        if(((cepValue >= data.cepMin && cepValue <= data.cepMax) && egesValue <= data.egesMax) || ((egesValue >= data.egesMin && egesValue <= data.egesMax) && cepValue <= data.cepMax)){
-            console.log("cep:", cepValue)
-            console.log("eges:", egesValue)
-            console.log("letter:",data.letter)
-            // let indicator = document.createElement("div");
-            // indicator.classList.add("indicateur");
-            bar.classList.add('focus')
-            // indicator.innerHTML = value;
-            // barContainer.append(indicator);
-        }else{
-            bar.classList.add('no-focus')
-        }
+        // if(((cepValue >= data.cepMin && cepValue <= data.cepMax) && egesValue <= data.egesMax) || ((egesValue >= data.egesMin && egesValue <= data.egesMax) && cepValue <= data.cepMax)){
+        //     console.log("cep:", cepValue)
+        //     console.log("eges:", egesValue)
+        //     console.log("letter:",data.letter)
+        //     // let indicator = document.createElement("div");
+        //     // indicator.classList.add("indicateur");
+        //     bar.classList.add('focus')
+        //     // indicator.innerHTML = value;
+        //     // barContainer.append(indicator);
+        // }else{
+        //     bar.classList.add('no-focus')
+        // }
     }
     containerElement.appendChild(stickerContainer);
 }
