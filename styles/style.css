@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -10,8 +11,13 @@ body {
 }
 
 .cepeges {
-  width: 200px;
+  width: 300px;
   background-color: white;
+  padding-left: 105px;
+  padding-right: 5px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border: 1px solid black;
 }
 
 .container-focus {
@@ -79,7 +85,6 @@ body {
 
 .focus-info {
   position: absolute;
-  color: pink;
   height: 100%;
   width: 100px;
   left: -100px;
@@ -112,6 +117,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+.dpe-info:after {
+  content: "consommation";
+  position: absolute;
+  font-size: 0.4rem;
+  font-weight: bold;
+  top: -11px;
+}
 
 .ges-info {
   color: black;
@@ -121,6 +133,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.ges-info:after {
+  content: "émissions";
+  position: absolute;
+  font-size: 0.4rem;
+  font-weight: bold;
+  top: -11px;
 }
 
 .span {
@@ -133,79 +152,42 @@ body {
   font-weight: bold;
 }
 
-.focus {
-  height: 100px;
-  font-size: 2rem;
-  border-left: 3px solid black;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-}
-
-.dpe-bar::after {
-  content: "";
+.A-bar:before {
+  font-size: 0.45rem;
+  font-weight: bold;
+  width: 200px;
+  color: #329837;
   position: absolute;
-  right: -25px;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-left: 25px solid var(--color);
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
+  top: -10px;
+  left: 0px;
+  content: "logement très performant";
 }
 
-.bars-container {
-  width: 500px;
-  height: 500px;
-  background: red;
-}
-
-.indicateur {
-  margin-top: 2px;
-  margin-bottom: 10px;
-  position: relative;
-  background-color: blue;
-  z-index: 2;
-  font-size: 1.5rem;
-  padding: 10px;
-  color: white;
-  background-color: black;
-}
-
-/* .indicateur::after {
-  content: '';
-  width: 1000px;
-  left: -1000px;
-  border-bottom: 1px dashed black;
+.G-bar:before {
+  font-size: 0.45rem;
+  font-weight: bold;
+  width: 200px;
+  color: #e4251f;
   position: absolute;
-  top: 50%;
-  z-index: 1;
-} */
-.indicateur::before {
-  content: "";
-  width: 230px;
-  left: -250px;
-  border-bottom: 1px dashed black;
-  position: absolute;
-  top: 50%;
-  z-index: 1;
+  bottom: -10px;
+  left: 0px;
+  content: "logement extrêmement consommateur d'énergie";
 }
 
-.indicateur::after {
-  content: "";
+.F-bar:before {
+  content: "passoire énergétique";
+  text-align: end;
+  font-size: 0.45rem;
+  font-weight: bold;
+  height: 150%;
+  width: 60px;
+  border-right: 2px solid #b8b8b8;
+  color: #b8b8b8;
   position: absolute;
-  right: 47px;
-  bottom: 0;
-  border-right: 24px solid black;
-  border-top: 24px solid transparent;
-  border-bottom: 24px solid transparent;
-}
-
-.indicateur-legend {
-  color: black;
-  position: absolute;
-  font-size: 0.9rem;
-  top: 50px;
-  left: -20px;
+  top: 0px;
+  left: -72px;
+  padding-top: 30px;
+  padding-right: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

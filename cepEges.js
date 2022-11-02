@@ -1,10 +1,5 @@
-import { arrowBuilder } from "./arrowBuilder";
-import { barBuilder } from "./barBuilder";
 
-const cepEges = (containerId) => {
-    let cepValue = 216;
-    let egesValue = 52;
-
+const cepEges = (containerId, cepValue, egesValue) => {
     const cepEgesDatas = [
         {
             letter: "A",
@@ -86,7 +81,7 @@ const cepEges = (containerId) => {
             border.innerHTML =
                 `
                     .`+data.letter+`-bar::after {
-                        clip-path: polygon(0 0, 90% 0%, 99% 50%, 90% 100%, 0 100%);
+                        clip-path: polygon(0 0, 90% 0%, 100% 50%, 90% 100%, 0 100%);
                         background-color: `+data.color+`;
                     }
 
@@ -128,25 +123,14 @@ const cepEges = (containerId) => {
             bar.classList.add("bar-nofocus")
             bar.style.backgroundColor = data.color;
             bar.style.setProperty('--color', data.color);
-        }     
-        
-        
+        }           
         barContainer.append(bar);
         stickerContainer.append(barContainer);
-        // if(((cepValue >= data.cepMin && cepValue <= data.cepMax) && egesValue <= data.egesMax) || ((egesValue >= data.egesMin && egesValue <= data.egesMax) && cepValue <= data.cepMax)){
-        //     console.log("cep:", cepValue)
-        //     console.log("eges:", egesValue)
-        //     console.log("letter:",data.letter)
-        //     let indicator = document.createElement("div");
-        //     indicator.classList.add("indicateur");
-        //     bar.classList.add('focus')
-        //     // indicator.innerHTML = value;
-        //     // barContainer.append(indicator);
-        // }else{
-        //     bar.classList.add('no-focus')
-        // }
     }
-    containerElement.appendChild(stickerContainer);
+    if (containerElement.childNodes.length != 0) {
+        containerElement.removeChild(containerElement.firstElementChild)
+    }
+    containerElement.appendChild(stickerContainer)
 }
 
 export default cepEges
