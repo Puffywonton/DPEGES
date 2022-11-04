@@ -61,7 +61,7 @@ const cepEges = (containerId, cepValue, egesValue) => {
     let containerElement = document.getElementById(containerId)
     let stickerContainer = document.createElement("div");
     stickerContainer.classList.add('sticker-container')
-    let size = 40;
+    let size = 40; //40% to get 100% at the end
     for(let data of cepEgesDatas) {
         let barContainer = document.createElement("div");
         barContainer.classList.add('bar-container');
@@ -81,7 +81,6 @@ const cepEges = (containerId, cepValue, egesValue) => {
             border.innerHTML =
                 `
                     .`+data.letter+`-bar::after {
-                        clip-path: polygon(0 0, 90% 0%, 100% 50%, 90% 100%, 0 100%);
                         background-color: `+data.color+`;
                     }
 

@@ -2,9 +2,9 @@ import './styles/style.css'
 import { dpe } from './dpe'
 import { ges } from './ges'
 import cepEges from './cepEges'
-import { barBuilder } from './barBuilder'
 import { params } from './params'
 import { screenshot } from './screenshot'
+import DepGes from './DepGes'
 
 document.querySelector('#app').innerHTML = `
     <div id="params" class="params">
@@ -25,11 +25,13 @@ document.querySelector('#app').innerHTML = `
         </div>
     </div>
     <div id="cepeges" class="cepeges"></div>
+    <div id="DepGes" class="depges"></div>
 `
 
 // dpe('dpe', 92)
 // ges('ges', 40)
-params()
-screenshot()
+// params()
+// screenshot()
+DepGes("DepGes", 400, 300)
 // cepEges("cepeges")
-// barBuilder("dpe")
+// barBuilder("dpe") 

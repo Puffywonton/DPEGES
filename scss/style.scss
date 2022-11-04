@@ -10,24 +10,32 @@
 
 body{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.params{
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
 .cepeges{
-  width: 300px;
+  width: 500px;
   background-color: white;
-  padding-left: 105px;
-  padding-right: 5px;
+  padding-left: 170px;
+  padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 10px;
   border: 1px solid black;
 }
 
 .container-focus {
-  height: 55px;
+  height: 85px;
 }
 .container-nofocus{
-  height: 40px;
+  height: 60px;
 }
 
 .bar-container {
@@ -48,10 +56,10 @@ body{
   &::after{
     content: "";
     position: relative;
-    left: 10px;
-    border-left: 10px solid var(--color);
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
+    left: 15px;
+    border-left: 15px solid var(--color);
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
   }
 }
 
@@ -62,48 +70,47 @@ body{
   display: flex;
   align-items: center;
   position: relative;
-  // left: 15px;
   clip-path: polygon(0 0, 90% 0%, 100% 50%, 90% 100%, 0 100%);
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   &:after{
     content: "";
     height: 100%;
     width: 100%;
+    clip-path: polygon(0 0, 90% 0%, 100% 50%, 90% 100%, 0 100%);
   }
 }
 
 .letter{
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   position: absolute;
   z-index: 2;
-  margin-left: 0.5rem;
+  margin-left: 10px;
   color: white;
   
 }
 .letter-focus{
-  // left: 15px;
-  font-size: 3rem;
-  -webkit-text-stroke: 2px black;
+  font-size: 5rem;
+  -webkit-text-stroke: 3px black;
 }
 .focus-info {
   position: absolute;
   height: 100%;
-  width: 100px;
-  left: -100px;
+  width: 150px;
+  left: -150px;
   z-index: 2;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   &:after{
     content: "";
     background-color: black;
-    width: 2px;
+    width: 3px;
     height: 90%;
   }
   &.focus-info :nth-child(2) {order: 3;} //WTF O_O ca marche!
@@ -120,13 +127,14 @@ body{
   &:after{
     content: "consommation";
     position: absolute;
-    font-size: 0.4rem;
-    font-weight: bold;
-    top: -11px;
+    font-size: 0.7rem;
+    // font-weight: bold;
+    top: -18px;
   }
 }
 
 .ges-info{
+  padding-top: 2px; // this is wrong i feel it
   color: black;
   width: 50%;
   height: 100%;
@@ -137,30 +145,30 @@ body{
   &:after{
     content: "émissions";
     position: absolute;
-    font-size: 0.4rem;
-    font-weight: bold;
-    top: -11px;
+    font-size: 0.7rem;
+    // font-weight: bold;
+    top: -18px;
   }
 }
 
 .span {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .legend {
-  font-size: 0.4rem;
+  font-size: 0.6rem;
   font-weight: bold;
 }
 
 .A-bar {
   &:before{
-    font-size: 0.45rem;
+    font-size: 0.7rem; //0.45
     font-weight: bold;
     width: 200px;
     color: #329837;
     position: absolute;
-    top: -10px;
+    top: -15px;
     left: 0px;
     content: "logement très performant";
   }
@@ -168,12 +176,12 @@ body{
 
 .G-bar {
   &:before{
-    font-size: 0.45rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    width: 200px;
+    width: 400px;
     color: #e4251f;
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 0px;
     content:"logement extrêmement consommateur d'énergie"
   }
@@ -183,17 +191,87 @@ body{
   &:before{
     content:"passoire énergétique";
     text-align: end;
-    font-size: 0.45rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    height: 150%;
+    height: 135%;
     width: 60px;
     // background-color: purple;
     border-right: 2px solid #b8b8b8;
     color: #b8b8b8;
     position: absolute;
     top: 0px;
-    left: -72px;
-    padding-top: 30px;
-    padding-right: 5px;
+    left: -80px;
+    padding-top: 50px;
+    padding-right: 10px;
   }
+}
+
+
+//////// condition: carre
+/// 
+.depges{
+  width: 400px;
+  // height: 700px;
+  background-color: white;
+  // padding-left: 170px;
+  // padding-right: 20px;
+  // padding-top: 20px;
+  // padding-bottom: 10px;
+  margin-top: 5px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: end;
+}
+
+.container-bars{
+  // width: 70%;
+  height: 100%;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-bar{
+  width: 100%;
+  background-color: green;
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.bar-letter{
+  position: absolute;
+  z-index: 10;
+  color: white;
+  // font-size: 2.5em;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.bar-letter-focus{
+  -webkit-text-stroke: 3px black;
+}
+
+.bar-info-focus{
+  position: absolute;
+  height: calc(100%);
+  // width: 150px;
+  // left: -150px;
+  z-index: 2;
+  background-color: lightblue;
+  border: 3px solid black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &:after{
+    content: "";
+    background-color: black;
+    width: 3px;
+    height: 90%;
+  }
+  &.focus-info :nth-child(2) {order: 3;} //WTF O_O ca marche!
 }
