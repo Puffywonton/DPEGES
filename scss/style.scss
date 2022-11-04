@@ -219,14 +219,60 @@ body{
   // padding-bottom: 10px;
   margin-top: 5px;
   border: 1px solid black;
+  
+}
+
+.main-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: end;
+  // background-color: greenyellow;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.top-legend{
+  position: absolute;
+  height: 20px;
+  color: #329837;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.bottom-legend{
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0px;
+  color: #e4251f;
+  display: flex;
+  align-items: start;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+.side-legend{
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  left: 0;
+  bottom: 50px;
+  padding-right: 7px;
+  // background-color: pink;
+  color: #b8b8b8;
+  border-right: 2px solid #b8b8b8;
+  font-weight: bold;
 }
 
 .container-bars{
   // width: 70%;
   height: 100%;
-  background-color: yellow;
+  // background-color: yellow;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -245,7 +291,6 @@ body{
   position: absolute;
   z-index: 10;
   color: white;
-  // font-size: 2.5em;
   font-weight: bold;
   padding-left: 15px;
 }
@@ -256,9 +301,7 @@ body{
 
 .bar-info-focus{
   position: absolute;
-  height: calc(100%);
-  // width: 150px;
-  // left: -150px;
+  height: 100%;
   z-index: 2;
   background-color: lightblue;
   border: 3px solid black;
@@ -273,5 +316,44 @@ body{
     width: 3px;
     height: 90%;
   }
-  &.focus-info :nth-child(2) {order: 3;} //WTF O_O ca marche!
+  &.bar-info-focus :nth-child(2) {order: 3;} //WTF O_O ca marche!
 }
+
+.focus-dpe-info{
+  color: black;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &:after{
+    content: "consommation";
+    position: absolute;
+    font-weight: bold;
+    top: -17px;
+  }
+}
+
+.focus-ges-info{
+  padding-top: 2px;
+  color: black;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &:after{
+    content: "émissions";
+    position: absolute;
+    font-weight: bold;
+    top: -17px;
+  }
+}
+
+.focus-legend {
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+

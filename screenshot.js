@@ -4,7 +4,8 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 export function screenshot() {
 const takeScreen = document.getElementById("screenshotButton")
     takeScreen.addEventListener("click", (e) => {
-        const frame = document.getElementById("cepeges")
+        console.log('hello')
+        const frame = document.getElementById("DepGes")
         htmlToImage.toSvg(frame)
             .then(function (dataUrl) {
                 var img = new Image();
