@@ -1,4 +1,4 @@
-
+import graphBuilder from "./graphBuilder"
 export function dpe (containerId, value){
 // input
 // possibles inputs : 
@@ -77,40 +77,5 @@ const dpeInfos = [
  }
  
 ]
-
-let containerElement = document.getElementById(containerId)
-let barsContainer = document.createElement("div");
-barsContainer.classList.add('bars-container')
-
-let size = 20;
-for(let dpeInfo of dpeInfos) {
-	console.log('dpeInfo', dpeInfo)
-  let barContainer = document.createElement("div");
-  barContainer.classList.add('bar-container');
-  let bar = document.createElement("div");
-  bar.classList.add('bar')
-  bar.classList.add(dpeInfo.letter + '-bar')
-  bar.style.width =  size + "%";
-  bar.style.backgroundColor = dpeInfo.color;
-  bar.style.setProperty('--color', dpeInfo.color);
-  let barRange = document.createElement("span");
-  barRange.innerHTML = dpeInfo.range;
-  bar.append(barRange);
-  barRange.classList.add('range')
-	let barLetter = document.createElement("span");
-  barLetter.innerHTML = dpeInfo.letter;
-  barLetter.classList.add('letter')
-  bar.append(barLetter);
-  barContainer.append(bar);
-  barsContainer.append(barContainer);
-  size  = size+10;
-  if (value > dpeInfo.rangevalue.start && value < dpeInfo.rangevalue.end){
-    let indicator = document.createElement("div");
-    indicator.classList.add("indicateur");
-    indicator.innerHTML = value;
-    barContainer.append(indicator);
-  }
-}
-
-containerElement.appendChild(barsContainer);
+graphBuilder(containerId, value, dpeInfos, "dpe")
 }

@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Puffywonton/DPEGPE/issues"
   },
-  "homepage": "https://github.com/Puffywonton/DPEGPE#readme"
+  "homepage": "https://github.com/Puffywonton/DPEGPE#readme",
+  "dependencies": {
+    "html-to-image": "^1.10.8"
+  }
 }
