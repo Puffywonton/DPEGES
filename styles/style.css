@@ -275,6 +275,7 @@ body {
 
 .bar-letter-focus {
   -webkit-text-stroke: 3px black;
+  padding-top: 5px;
 }
 
 .bar-info-focus {
@@ -312,7 +313,7 @@ body {
   content: "consommation";
   position: absolute;
   font-weight: bold;
-  top: -17px;
+  top: 2px;
 }
 
 .focus-ges-info {
@@ -329,7 +330,7 @@ body {
   content: "émissions";
   position: absolute;
   font-weight: bold;
-  top: -17px;
+  top: 2px;
 }
 
 .focus-legend {
