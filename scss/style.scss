@@ -1,6 +1,11 @@
 
-
-@import './variables';
+.toto {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 1000px;
+  margin: auto;
+}
 
 
 * {

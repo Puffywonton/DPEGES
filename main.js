@@ -1,10 +1,6 @@
 import './styles/style.css'
-import { dpe } from './dpe'
-import { ges } from './ges'
-import cepEges from './cepEges'
-import { params } from './params'
+import { DepGesDemoInit } from './DepGesDemoInit'
 import { screenshot } from './screenshot'
-import DepGes from './DepGes'
 
 document.querySelector('#app').innerHTML = `
     <div id="params" class="params">
@@ -58,17 +54,21 @@ document.querySelector('#app').innerHTML = `
             </div>
         </form>
 
-        <div>
-            <span>SCREENSHOT</span>
-            <button id="screenshotButton">CLICK</button>
-        </div>
+        
     </div>
     <div id="DepGes" class="depges"></div>
+    <div>
+        <span>SCREENSHOT</span>
+        <button id="screenshotButton">CLICK</button>
+        <div id="screenContainer" class="toto"></div>
+    </div>
 `
 
 // dpe('dpe', 92)
 // ges('ges', 40)
-params()
+DepGesDemoInit()
+// change params to init ou un truc du genre
+
 screenshot()
 // DepGes("DepGes", 600, 500, 12, 12)
 

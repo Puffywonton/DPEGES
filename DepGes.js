@@ -1,75 +1,36 @@
-const DepGes = (containerId, containerHeight, containerWidth, cepValue, egesValue) => {
-    const Datas = [
-        {
-            letter: "A",
-            cepMin: 0,
-            cepMax: 69, //original is 70 but I wan to use inferior equal
-            egesMin: 0,
-            egesMax: 5, //original 6
-            color: '#329837'
-        },
-        {
-            letter: "B",
-            cepMin: 70,
-            cepMax: 109, //110
-            egesMin: 6,
-            egesMax: 10, //11
-            color: '#57af37'
-        },
-        {
-            letter: "C",
-            cepMin: 110,
-            cepMax: 179, //180
-            egesMin: 11,
-            egesMax: 29, //30
-            color: '#c6d300'
-        },
-        {
-            letter: "D",
-            cepMin: 180,
-            cepMax: 249, //250
-            egesMin: 30,
-            egesMax: 49, //50
-            color: '#f2e500'
-        },
-        {
-            letter: "E",
-            cepMin: 250,
-            cepMax: 329, //330
-            egesMin: 50,
-            egesMax: 69, //70
-            color: '#ffcb03'
-        },
-        {
-            letter: "F",
-            cepMin: 330,
-            cepMax: 419, //420
-            egesMin: 70,
-            egesMax: 99, //100
-            color: '#f39739'
-        },
-        {
-            letter: "G",
-            cepMin: 420,
-            cepMax: 1000, //what is max??
-            egesMin: 100,
-            egesMax: 1000, //what is max ??
-            color: '#e4251f'
-        },
-    ]
-    let barsContainerProportion = 0.6
+import DepGesData from "./DepGesData"
 
+
+// top and bottom legend builder:
+const topBottomLegendBuilder = (containerWidth, containerHeight, barsContainerProportion, mainContainer, className, innerText) => {
+    let legend = document.createElement("span")
+    legend.style.width = (containerWidth * barsContainerProportion) + "px"
+    legend.style.fontSize = containerHeight / 45 + "px"
+    legend.classList.add(className)
+    legend.innerHTML = innerText
+    mainContainer.appendChild(legend)
+}
+
+// side legend builder
+const sideLegendBuilder = (containerWidth, containerHeight, barsContainerProportion, mainContainer) => {
+    let sideLegend = document.createElement("span")
+    sideLegend.style.width = (containerWidth * (1 - barsContainerProportion) - 7) + "px"
+    sideLegend.style.height = (containerHeight / 5) + "px"
+    sideLegend.style.fontSize = containerHeight / 45 + "px"
+    sideLegend.classList.add("side-legend")
+    sideLegend.innerHTML = "passoire énergétique"
+    mainContainer.appendChild(sideLegend)
+}
+
+const DepGes = (containerId, containerWidth, containerHeight, cepValue, egesValue) => {
+    const Datas = DepGesData()
+    let barsContainerProportion = 0.6
     let containerElement = document.getElementById(containerId)
     containerElement.style.height = containerHeight + "px"
     containerElement.style.width = containerWidth + "px"
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("main-container")
-    let topLegend = document.createElement("span")
-    topLegend.style.width = (containerWidth * barsContainerProportion) + "px"
-    topLegend.style.fontSize = containerHeight / 45 + "px"
-    topLegend.classList.add("top-legend")
-    topLegend.innerHTML = "logement très performant"
-    mainContainer.appendChild(topLegend)
+    topBottomLegendBuilder(containerWidth, containerHeight, barsContainerProportion, mainContainer, "top-legend", "logement très performant")
     let barsContainer = document.createElement("div");
     barsContainer.classList.add('container-bars')
     barsContainer.style.width = (containerWidth * barsContainerProportion) + "px"
@@ -147,22 +108,13 @@ const DepGes = (containerId, containerHeight, containerWidth, cepValue, egesValu
                     style="`+styleStroke+`;stroke-width:3;fill:`+data.color+`"/>
             </svg>
             `
+            //add variable d
+
         )
         barContainer.appendChild(barLetter);
     }
-    let sideLegend = document.createElement("span")
-    sideLegend.style.width = (containerWidth * (1 - barsContainerProportion) - 7) + "px"
-    sideLegend.style.height = (containerHeight / 5) + "px"
-    sideLegend.style.fontSize = containerHeight / 45 + "px"
-    sideLegend.classList.add("side-legend")
-    sideLegend.innerHTML = "passoire énergétique"
-    mainContainer.appendChild(sideLegend)
-    let bottomLegend = document.createElement("span")
-    bottomLegend.style.width = (containerWidth * barsContainerProportion) + "px"
-    bottomLegend.style.fontSize = containerHeight / 45 + "px"
-    bottomLegend.classList.add("bottom-legend")
-    bottomLegend.innerHTML = "logement extrêmement consommateur d'énergie"
-    mainContainer.appendChild(bottomLegend)
+    sideLegendBuilder(containerWidth, containerHeight, barsContainerProportion, mainContainer)
+    topBottomLegendBuilder(containerWidth, containerHeight, barsContainerProportion, mainContainer, "bottom-legend", "logement extrêmement consommateur d'énergie")
     mainContainer.appendChild(barsContainer)
     if (containerElement.childNodes.length != 0) {
         containerElement.removeChild(containerElement.firstElementChild)

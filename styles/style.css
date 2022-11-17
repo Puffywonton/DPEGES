@@ -1,4 +1,12 @@
 @charset "UTF-8";
+.toto {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 1000px;
+  margin: auto;
+}
+
 * {
   box-sizing: border-box;
   font-family: sans-serif;

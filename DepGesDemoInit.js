@@ -1,7 +1,6 @@
-import cepEges from "./cepEges"
 import DepGes from "./DepGes"
 
-export function params() { 
+export function DepGesDemoInit() { 
     const presetParamBtn = document.getElementById("presetParamBtn")
     const presetParamContainer = document.getElementById("presetParamContainer")
     presetParamContainer.style.display = "none";
@@ -47,8 +46,6 @@ export function params() {
         e.preventDefault()
         let dpeValue = document.getElementById('dpeInput').value
         let gesValue = document.getElementById('gesInput').value
-        // let heightValue = document.getElementById('heightInput').value
-        // let widthValue = document.getElementById('widthInput').value
         let heightValue = 600
         let widthValue
         if (size === "large") {
