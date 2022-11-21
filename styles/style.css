@@ -157,8 +157,8 @@ body {
   top: -18px;
 }
 
-.span {
-  font-size: 2rem;
+.focus-info-span {
+  padding-top: 15px;
   font-weight: bold;
 }
 
@@ -218,30 +218,21 @@ body {
   height: 100%;
   display: flex;
   justify-content: end;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  align-items: center;
 }
 
 .top-legend {
-  position: absolute;
-  height: 20px;
   color: #329837;
-  top: 0px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   font-weight: bold;
 }
 
 .bottom-legend {
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  bottom: 0px;
   color: #e4251f;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   font-weight: bold;
-  padding-top: 3px;
 }
 
 .side-legend {
@@ -250,7 +241,6 @@ body {
   justify-content: end;
   align-items: center;
   left: 0;
-  bottom: 50px;
   padding-right: 7px;
   color: #b8b8b8;
   border-right: 2px solid #b8b8b8;
@@ -347,7 +337,6 @@ body {
 }
 
 .focus-legend {
-  font-size: 0.6rem;
   font-weight: bold;
 }
 

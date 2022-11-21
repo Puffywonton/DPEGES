@@ -1,11 +1,14 @@
 import depGesData from "./depGesData"
-import depGesParamsData from "./depGesParamsData"
+import dpeGesParamsData from "./dpeGesParamsData"
 
 // top and bottom legend builder:
-const topBottomLegendBuilder = (containerWidth, containerHeight, barsContainerProportion, className, innerText) => {
+const topBottomLegendBuilder = (containerHeight, className, innerText) => {
+    const params = dpeGesParamsData()
+    let legendheight = containerHeight / (params.barContainerHeightProportion * 3)
+    let legendFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoLegendModifier
     let legend = document.createElement("span")
-    legend.style.width = (containerWidth * barsContainerProportion) + "px"
-    legend.style.fontSize = containerHeight / 45 + "px"
+    legend.style.height = legendheight + "px"
+    legend.style.fontSize = legendFontSize + "px"
     legend.classList.add(className)
     legend.innerHTML = innerText
     return(legend)
@@ -13,27 +16,37 @@ const topBottomLegendBuilder = (containerWidth, containerHeight, barsContainerPr
 
 // side legend builder
 const sideLegendBuilder = (containerWidth, containerHeight, barsContainerProportion) => {
+    const params = dpeGesParamsData()
+    let legendFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoLegendModifier
+    let legendHeight = (containerHeight / params.barContainerHeightProportion) * 1.6
+    let legendBottom = ((containerHeight / params.barContainerHeightProportion) / 1.6 )
     let sideLegend = document.createElement("span")
     sideLegend.style.width = (containerWidth * (1 - barsContainerProportion) - 7) + "px"
-    sideLegend.style.height = (containerHeight / 5) + "px"
-    sideLegend.style.fontSize = containerHeight / 45 + "px"
+    sideLegend.style.height = legendHeight + "px"
+    sideLegend.style.bottom = legendBottom + "px"
+    sideLegend.style.fontSize = legendFontSize + "px"
     sideLegend.classList.add("side-legend")
-    sideLegend.innerHTML = "passoire énergétique"
+    sideLegend.innerHTML = params.sideLegendText
     return(sideLegend)
 }
 
 // focus info builder both for dpe & ges
-const dpeGesInfoBuilder = (containerHeight, infoClassName, spanClassName, spanValue, legendClassList, legendInnerHtml) => {
+const dpeGesInfoBuilder = (containerHeight, spanValue, legendInnerHtml) => {
+    const params = dpeGesParamsData()
+    let infoTitleFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoTitleModifier
+    let infoValueFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoValueModifier
+    let infoLegendFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoLegendModifier
     let info = document.createElement("div")
-    info.style.fontSize = containerHeight / 45 + "px"
-    info.classList.add(infoClassName)
+    info.style.fontSize = infoTitleFontSize + "px"
+    info.classList.add("focus-dpe-info")
     let infoSpan = document.createElement("span")
-    infoSpan.classList.add(spanClassName)
-    infoSpan.style.fontSize = containerHeight / 13 + "px"
+    infoSpan.classList.add("focus-info-span")
+    infoSpan.style.fontSize = infoValueFontSize + "px"
     infoSpan.innerHTML = spanValue
     info.appendChild(infoSpan)
     let infoLegend = document.createElement("span")
-    infoLegend.classList.add(legendClassList)
+    infoLegend.classList.add("focus-legend")
+    infoLegend.style.fontSize = infoLegendFontSize + "px"
     infoLegend.innerHTML = legendInnerHtml
     info.appendChild(infoLegend)
     return(info)
@@ -47,40 +60,62 @@ const isFocusChecker = (cepValue, cepMin, cepMax, egesValue, egesMin, egesMax ) 
 }
 
 // to build the side panels containing the focus info
-const focusInfoBuilder = (containerWidth, barsContainerProportion, dpeInfoBuilder, gesInfoBuilder) => {
+const focusInfoBuilder = (containerWidth, containerHeight, barsContainerProportion, dpeLegendHtml, gesLegendHtml, dpeValue, gesValue) => {
     let focusInfo = document.createElement("div")
     focusInfo.classList.add("bar-info-focus")
     focusInfo.style.width = (containerWidth * (1 - barsContainerProportion))-4 + "px"
     focusInfo.style.left = "-" + ((containerWidth * (1 - barsContainerProportion))-4) + "px"
-    focusInfo.appendChild(dpeInfoBuilder)
-    focusInfo.appendChild(gesInfoBuilder)
+    focusInfo.appendChild(dpeGesInfoBuilder(containerHeight, dpeValue, dpeLegendHtml))
+    focusInfo.appendChild(dpeGesInfoBuilder(containerHeight, gesValue, gesLegendHtml))
     return(focusInfo)
 }
 
 // to build the bar letter
-const barLetterBuilder = (letter, className, containerHeight, factor) => {
+const barLetterBuilder = (letter, classList, size) => {
     let barLetter = document.createElement("span")
     barLetter.innerHTML = letter
-    barLetter.classList.add(className);
-    barLetter.style.fontSize = containerHeight / factor + "px"
+    barLetter.classList.add(classList);
+    barLetter.style.fontSize = size + "px"
     return(barLetter)
 }
 
 // to assemble the bar
-const barContainerBuilder = (barContainerWidthSize, isFocusChecker, focusInfoBuilder, letter, color, containerHeight ) => {
+const barContainerBuilder = (barContainerWidthSize, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter, color, containerHeight, containerWidth ) => {
+    let params = dpeGesParamsData()
     let styleStroke = "stroke:none"
-    let height = 12; //percentage cannot be above 12
+    let modifier = params.barFocusSizeModifier
+    let height = containerHeight / params.barContainerHeightProportion
+    let heightFocus= modifier * height
+    let letterSize = height * params.barLetterModifier
+    let letterSizeFocus = heightFocus * params.barLetterModifier
     let barContainer = document.createElement("div")
     barContainer.classList.add('container-bar')
     barContainer.style.width = barContainerWidthSize + "%";
-    if (isFocusChecker) {
+    if (isFocusChecker(dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax)) {
         styleStroke = "stroke:black"
-        barContainer.style.height = height * 1.6 + "%" //can modify height of focus element here
-        barContainer.appendChild(focusInfoBuilder)
-        barContainer.appendChild(barLetterBuilder(letter, "bar-letter-focus", containerHeight, 5))
+        barContainer.style.height = heightFocus + "px"
+        barContainer.appendChild(focusInfoBuilder(
+            containerWidth,
+            containerHeight,
+            params.barsContainerProportion,
+            params.dpeLegendHtml,
+            params.gesLegendHtml,
+            dpeValue,
+            gesValue,
+        ))
+        barContainer.appendChild(barLetterBuilder(
+            letter,
+            "bar-letter-focus",
+            letterSizeFocus,
+        ))
     } else {
-        barContainer.style.height = height + "%"
-        barContainer.appendChild(barLetterBuilder(letter, "bar-letter", containerHeight, 10))
+        barContainer.style.height = height + "px"
+        barContainer.appendChild(barLetterBuilder(
+            letter,
+            "bar-letter",
+            letterSize,
+
+        ))
     }
     barContainer.insertAdjacentHTML("afterbegin",  
         `
@@ -104,48 +139,32 @@ const barContainerBuilder = (barContainerWidthSize, isFocusChecker, focusInfoBui
 
 const barsContainerBuilder = (containerWidth, containerHeight, barsContainerProportion, cepValue, egesValue) => {
     const datas = depGesData()
-    let barContainerWidthSize = (100 - (datas.length - 1) * 10) // datas length must be inferior to 10 *might be stupid maybe delete
+    const params = dpeGesParamsData()
     let barContainerWidthIncrementor = 10
+    let barContainerWidthSize = 40
     let barsContainer = document.createElement("div");
     barsContainer.classList.add('container-bars')
     barsContainer.style.width = (containerWidth * barsContainerProportion) + "px"
+    barsContainer.appendChild(topBottomLegendBuilder(containerHeight, "top-legend", params.topLegendText))
     for (let data of datas) {
-        barsContainer.append(barContainerBuilder(
-            barContainerWidthSize,
-            isFocusChecker(
+        barsContainer.append(
+            barContainerBuilder(
+                barContainerWidthSize,
                 cepValue,
                 data.cepMin,
                 data.cepMax,
                 egesValue,
                 data.egesMin,
-                data.egesMax
-            ),
-            focusInfoBuilder(
-                containerWidth,
-                barsContainerProportion,
-                dpeGesInfoBuilder( //adding dpe info
-                    containerHeight,
-                    "focus-dpe-info",
-                    "span", //might need to modify css classname very confusing
-                    cepValue,
-                    "focus-legend",
-                    `kWh/m<sup>2</sup>.an`
-                ),
-                dpeGesInfoBuilder( //adding ges info
-                    containerHeight,
-                    "focus-ges-info",
-                    "span",//might need to modify css classname very confusing
-                    egesValue,
-                    "focus-legend",
-                    `kgCO<sub>2</sub>/m<sup>2</sup>.an`
-                ),
-            ),
-            data.letter,
-            data.color,
-            containerHeight
-        ))
+                data.egesMax,
+                data.letter,
+                data.color,
+                containerHeight,
+                containerWidth
+            )
+        )
         barContainerWidthSize = barContainerWidthSize + barContainerWidthIncrementor;
     }
+    barsContainer.appendChild(topBottomLegendBuilder(containerHeight, "bottom-legend", params.bottomLegendText))
     return(barsContainer)
 }
 
@@ -156,9 +175,7 @@ const DepGes = (containerId, containerWidth, containerHeight, cepValue, egesValu
     containerElement.style.height = containerHeight + "px"
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("main-container")
-    mainContainer.appendChild(topBottomLegendBuilder(containerWidth, containerHeight, barsContainerProportion, "top-legend", "logement très performant"))
     mainContainer.appendChild(sideLegendBuilder(containerWidth, containerHeight, barsContainerProportion))
-    mainContainer.appendChild(topBottomLegendBuilder(containerWidth, containerHeight, barsContainerProportion, "bottom-legend", "logement extrêmement consommateur d'énergie"))
     mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, barsContainerProportion, cepValue, egesValue))
     if (containerElement.childNodes.length != 0) {
         containerElement.removeChild(containerElement.firstElementChild)
