@@ -4,6 +4,7 @@ const dpeGesParamsData = () => {
         barContainerHeightProportion: 9,
         barFocusSizeModifier: 2,
         legendFontSizeModifier: 0.1,
+        topBottomLegendHeightModifier: 3,
         barLetterModifier: 1.1,
         infoValueModifier: 0.5,
         infoLegendModifier: 0.1,

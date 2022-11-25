@@ -4,7 +4,7 @@ import dpeGesParamsData from "./dpeGesParamsData"
 // top and bottom legend builder:
 const topBottomLegendBuilder = (containerHeight, className, innerText) => {
     const params = dpeGesParamsData()
-    let legendheight = containerHeight / (params.barContainerHeightProportion * 3)
+    let legendheight = containerHeight / (params.barContainerHeightProportion * params.topBottomLegendHeightModifier)
     let legendFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoLegendModifier
     let legend = document.createElement("span")
     legend.style.height = legendheight + "px"
@@ -15,13 +15,19 @@ const topBottomLegendBuilder = (containerHeight, className, innerText) => {
 }
 
 // side legend builder
-const sideLegendBuilder = (containerWidth, containerHeight, barsContainerProportion) => {
+const sideLegendBuilder = (containerWidth, containerHeight) => {
     const params = dpeGesParamsData()
     let legendFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoLegendModifier
-    let legendHeight = (containerHeight / params.barContainerHeightProportion) * 1.6
-    let legendBottom = ((containerHeight / params.barContainerHeightProportion) / 1.6 )
+    // the following helps calculate exact px height to sync the sidelegend to the correct bars
+    let barHeight = (containerHeight / params.barContainerHeightProportion)
+    let focusbarHeight = (containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier
+    let topBottomlegendHeight = (containerHeight / (params.barContainerHeightProportion * params.topBottomLegendHeightModifier))
+    // by substracting those heights with the containerHeight I can get the gap height between each bar
+    let gapBetweenBars = (containerHeight - ((barHeight * 6) + focusbarHeight + (topBottomlegendHeight *2))) / 8
+    let legendHeight = (barHeight * 2) + gapBetweenBars
+    let legendBottom = (topBottomlegendHeight) + gapBetweenBars
     let sideLegend = document.createElement("span")
-    sideLegend.style.width = (containerWidth * (1 - barsContainerProportion) - 7) + "px"
+    sideLegend.style.width = (containerWidth * (1 - params.barsContainerProportion) - 7) + "px"
     sideLegend.style.height = legendHeight + "px"
     sideLegend.style.bottom = legendBottom + "px"
     sideLegend.style.fontSize = legendFontSize + "px"
@@ -81,7 +87,10 @@ const barLetterBuilder = (letter, classList, size) => {
 
 // to assemble the bar
 const barContainerBuilder = (barContainerWidthSize, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter, color, containerHeight, containerWidth ) => {
-    let params = dpeGesParamsData()
+    const params = dpeGesParamsData()
+    let svgWidth = (containerWidth*2 - (containerWidth / 30))
+    let svgArrow = (containerWidth*2 - (containerWidth / 200))
+    let viewBoxWidth = containerWidth*2 - 100
     let styleStroke = "stroke:none"
     let modifier = params.barFocusSizeModifier
     let height = containerHeight / params.barContainerHeightProportion
@@ -122,29 +131,28 @@ const barContainerBuilder = (barContainerWidthSize, dpeValue, dpeMin, dpeMax, ge
         <svg 
             width='100%' 
             height='100%' 
-            viewBox="700 0 100 100" 
+            viewBox="` + viewBoxWidth + ` 0 100 100" 
             style='background-color: white'
             preserveAspectRatio="xMaxYMax meet"
         >
             <path 
-                d="M1 1 L 780 1 L 797 50 L 780 99 L 1 99 Z" 
+                d="M1 1 L` + svgWidth + ` 1 L ` + svgArrow + ` 50 L ` + svgWidth + ` 99 L 1 99 Z" 
                 vector-effect="non-scaling-stroke" 
                 style="`+styleStroke+`;stroke-width:3;fill:`+color+`"/>
         </svg>
         `
-        //add variable d
     )
     return(barContainer)
 }
 
-const barsContainerBuilder = (containerWidth, containerHeight, barsContainerProportion, cepValue, egesValue) => {
+const barsContainerBuilder = (containerWidth, containerHeight, cepValue, egesValue) => {
     const datas = depGesData()
     const params = dpeGesParamsData()
     let barContainerWidthIncrementor = 10
     let barContainerWidthSize = 40
     let barsContainer = document.createElement("div");
     barsContainer.classList.add('container-bars')
-    barsContainer.style.width = (containerWidth * barsContainerProportion) + "px"
+    barsContainer.style.width = (containerWidth * params.barsContainerProportion) + "px"
     barsContainer.appendChild(topBottomLegendBuilder(containerHeight, "top-legend", params.topLegendText))
     for (let data of datas) {
         barsContainer.append(
@@ -169,14 +177,13 @@ const barsContainerBuilder = (containerWidth, containerHeight, barsContainerProp
 }
 
 const DepGes = (containerId, containerWidth, containerHeight, cepValue, egesValue) => {
-    let barsContainerProportion = 0.6
     let containerElement = document.getElementById(containerId)
     containerElement.style.width = containerWidth + "px"
     containerElement.style.height = containerHeight + "px"
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("main-container")
-    mainContainer.appendChild(sideLegendBuilder(containerWidth, containerHeight, barsContainerProportion))
-    mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, barsContainerProportion, cepValue, egesValue))
+    mainContainer.appendChild(sideLegendBuilder(containerWidth, containerHeight))
+    mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, cepValue, egesValue))
     if (containerElement.childNodes.length != 0) {
         containerElement.removeChild(containerElement.firstElementChild)
     }
