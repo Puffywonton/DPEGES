@@ -97,6 +97,6 @@ export function dpeGesDemoInit() {
         let gesValue = document.getElementById('gesInput').value
         let heightValue = document.getElementById('heightInput').value
         let widthValue = document.getElementById('widthInput').value
-        launchDpeGes("dpeGesDemoContainer", heightValue, widthValue, dpeValue, gesValue)
+        launchDpeGes("dpeGesDemoContainer", widthValue, heightValue, dpeValue, gesValue)
     })
 }

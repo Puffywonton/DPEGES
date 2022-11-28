@@ -37,14 +37,14 @@ const sideLegendBuilder = (containerWidth, containerHeight) => {
 }
 
 // focus info builder both for dpe & ges
-const dpeGesInfoBuilder = (containerHeight, spanValue, legendInnerHtml) => {
+const dpeGesInfoBuilder = (containerHeight, spanValue, legendInnerHtml, className) => {
     const params = dpeGesParamsData()
     let infoTitleFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoTitleModifier
     let infoValueFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoValueModifier
     let infoLegendFontSize = ((containerHeight / params.barContainerHeightProportion) * params.barFocusSizeModifier) * params.infoLegendModifier
     let info = document.createElement("div")
     info.style.fontSize = infoTitleFontSize + "px"
-    info.classList.add("focus-dpe-info")
+    info.classList.add(className)
     let infoSpan = document.createElement("span")
     infoSpan.classList.add("focus-info-span")
     infoSpan.style.fontSize = infoValueFontSize + "px"
@@ -71,8 +71,8 @@ const focusInfoBuilder = (containerWidth, containerHeight, barsContainerProporti
     focusInfo.classList.add("bar-info-focus")
     focusInfo.style.width = (containerWidth * (1 - barsContainerProportion))-4 + "px"
     focusInfo.style.left = "-" + ((containerWidth * (1 - barsContainerProportion))-4) + "px"
-    focusInfo.appendChild(dpeGesInfoBuilder(containerHeight, dpeValue, dpeLegendHtml))
-    focusInfo.appendChild(dpeGesInfoBuilder(containerHeight, gesValue, gesLegendHtml))
+    focusInfo.appendChild(dpeGesInfoBuilder(containerHeight, dpeValue, dpeLegendHtml, "focus-dpe-info"))
+    focusInfo.appendChild(dpeGesInfoBuilder(containerHeight, gesValue, gesLegendHtml, "focus-ges-info"))
     return(focusInfo)
 }
 
