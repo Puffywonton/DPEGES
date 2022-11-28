@@ -1,226 +1,93 @@
+/* css for demo */
 
-
-@import './variables';
-
+.dpegesDemoContainer {
+  border: 1px solid black;
+}
 
 * {
   box-sizing: border-box;
   font-family: sans-serif;
 }
 
-body{
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.params{
+.params {
   display: flex;
   flex-direction: column;
   font-size: 1rem;
 }
 
-.cepeges{
-  width: 500px;
-  background-color: white;
-  padding-left: 170px;
-  padding-right: 20px;
-  padding-top: 20px;
+.values-container {
+  padding-top: 10px;
   padding-bottom: 10px;
-  border: 1px solid black;
-}
-
-.container-focus {
-  height: 85px;
-}
-.container-nofocus{
-  height: 60px;
-}
-
-.bar-container {
-  margin-bottom: 10px;
   display: flex;
-  align-items: center;
-  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.bar-nofocus {
-  background-color: transparent;
-  width: calc(100% - 10px);
-  height: 100%;
+.param-selector {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  justify-content: end;
-  position: relative;
-  &::after{
-    content: "";
-    position: relative;
-    left: 15px;
-    border-left: 15px solid var(--color);
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-  }
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
-.bar-focus {
-  background-color: black;
+.param-selector-button {
+  height: 25px;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.preset-param-container {
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  clip-path: polygon(0 0, 90% 0%, 100% 50%, 90% 100%, 0 100%);
-  border: 3px solid transparent;
-  &:after{
-    content: "";
-    height: 100%;
-    width: 100%;
-    clip-path: polygon(0 0, 90% 0%, 100% 50%, 90% 100%, 0 100%);
-  }
-}
-
-.letter{
-  font-size: 3rem;
-  font-weight: bold;
-  position: absolute;
-  z-index: 2;
-  margin-left: 10px;
-  color: white;
-  
-}
-.letter-focus{
-  font-size: 5rem;
-  -webkit-text-stroke: 3px black;
-}
-.focus-info {
-  position: absolute;
-  height: 100%;
-  width: 150px;
-  left: -150px;
-  z-index: 2;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  border-left: 3px solid black;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  &:after{
-    content: "";
-    background-color: black;
-    width: 3px;
-    height: 90%;
-  }
-  &.focus-info :nth-child(2) {order: 3;} //WTF O_O ca marche!
-}
-
-.dpe-info{
-  color: black;
-  width: 50%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  &:after{
-    content: "consommation";
-    position: absolute;
-    font-size: 0.7rem;
-    // font-weight: bold;
-    top: -18px;
-  }
+  align-items: flex-start;
 }
 
-.ges-info{
-  padding-top: 2px; // this is wrong i feel it
-  color: black;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  &:after{
-    content: "émissions";
-    position: absolute;
-    font-size: 0.7rem;
-    // font-weight: bold;
-    top: -18px;
-  }
-}
-
-.span {
-  font-size: 2rem;
+.create-button {
+  width: 100%;
+  height: 50px;
+  font-size: 1rem;
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
-.legend {
-  font-size: 0.6rem;
+.sticker-ratio-container {
+  padding: 10px;
+}
+
+.sticker-size-container{
+  padding: 10px
+}
+
+.custom-size-container {
+  padding: 10px;
+}
+
+.instructions{
+  font-size: 1.5rem;
+}
+
+.download-button {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+  font-size: 1rem;
   font-weight: bold;
-}
-
-.A-bar {
-  &:before{
-    font-size: 0.7rem; //0.45
-    font-weight: bold;
-    width: 200px;
-    color: #329837;
-    position: absolute;
-    top: -15px;
-    left: 0px;
-    content: "logement très performant";
-  }
-}
-
-.G-bar {
-  &:before{
-    font-size: 0.7rem;
-    font-weight: bold;
-    width: 400px;
-    color: #e4251f;
-    position: absolute;
-    bottom: -15px;
-    left: 0px;
-    content:"logement extrêmement consommateur d'énergie"
-  }
-}
-
-.F-bar {
-  &:before{
-    content:"passoire énergétique";
-    text-align: end;
-    font-size: 0.7rem;
-    font-weight: bold;
-    height: 135%;
-    width: 60px;
-    // background-color: purple;
-    border-right: 2px solid #b8b8b8;
-    color: #b8b8b8;
-    position: absolute;
-    top: 0px;
-    left: -80px;
-    padding-top: 50px;
-    padding-right: 10px;
-  }
-}
-
-
-//////// condition: carre
-/// 
-.depges{
-  width: 400px;
-  // height: 700px;
-  background-color: white;
-  // padding-left: 170px;
-  // padding-right: 20px;
-  // padding-top: 20px;
-  // padding-bottom: 10px;
-  margin-top: 5px;
-  border: 1px solid black;
   
 }
+
+// dpeges stuff
 
 .main-container{
   position: relative;
@@ -228,31 +95,22 @@ body{
   height: 100%;
   display: flex;
   justify-content: end;
-  // background-color: greenyellow;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  align-items: center;
+  background-color: white;
 }
 
 .top-legend{
-  position: absolute;
-  height: 20px;
   color: #329837;
-  top: 0px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   font-weight: bold;
 }
 
 .bottom-legend{
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  bottom: 0px;
   color: #e4251f;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   font-weight: bold;
-  padding-top: 3px;
 }
 
 .side-legend{
@@ -261,9 +119,7 @@ body{
   justify-content: end;
   align-items: center;
   left: 0;
-  bottom: 50px;
   padding-right: 7px;
-  // background-color: pink;
   color: #b8b8b8;
   border-right: 2px solid #b8b8b8;
   font-weight: bold;
@@ -280,7 +136,6 @@ body{
 
 .container-bar{
   width: 100%;
-  background-color: green;
   position: relative;
   display: flex;
   justify-content: start;
@@ -296,12 +151,18 @@ body{
 }
 
 .bar-letter-focus{
+  position: absolute;
+  z-index: 10;
+  color: white;
+  font-weight: bold;
+  padding-left: 15px;
   -webkit-text-stroke: 3px black;
 }
 
 .bar-info-focus{
   position: absolute;
-  height: 100%;
+  // height: 100%;
+  height: calc(100%);
   z-index: 2;
   background-color: lightblue;
   border: 3px solid black;
@@ -331,7 +192,7 @@ body{
     content: "consommation";
     position: absolute;
     font-weight: bold;
-    top: -17px;
+    top: 2px;
   }
 }
 
@@ -348,12 +209,11 @@ body{
     content: "émissions";
     position: absolute;
     font-weight: bold;
-    top: -17px;
+    top: 2px;
   }
 }
 
 .focus-legend {
-  font-size: 0.6rem;
   font-weight: bold;
 }
 

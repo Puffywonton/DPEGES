@@ -1,47 +1,63 @@
 import './styles/style.css'
-import { dpe } from './dpe'
-import { ges } from './ges'
-import cepEges from './cepEges'
-import { params } from './params'
-import { screenshot } from './screenshot'
-import DepGes from './DepGes'
+import { dpeGesDemoInit } from './dpeGesDemoInit'
 
 document.querySelector('#app').innerHTML = `
+    <h1>Générateur d'étiquettes DPE/GES</h1>
     <div id="params" class="params">
-        <div class="values-container">
+        <span class="instructions">Entrez les valeurs DPE et GES:</span>
+        <div class="values-container">    
             <div class="dpe-container">
-                <span>valeur dpe</span>
+                <label for="dpeInput">valeur du DPE</label>
                 <input type="text" value="12" id="dpeInput"></input>
             </div>
             <div class="ges-container">
-                <span>valeur ges</span>
+                <label for="gesInput">valeur du GES</label>
                 <input type="text" value="50" id="gesInput"></input>
-            </div>
-            <div class="size-container">
-                <span>width</span>
-                <input type="text" value="500" id="widthInput"></input>
-                <span>height</span>
+            </div> 
+        </div>
+        <span class="instructions">Choisissez entre des dimensions prédéfinies ou personalisées:</span>
+        <div class="param-selector">
+            <button class="param-selector-button" id="presetParamBtn">dimension prédéfinie</button>
+            <button class="param-selector-button" id="customParamBtn">dimension personnalisée</button>
+        </div>
+        <div class="preset-param-container" id="presetParamContainer">
+            <form>
+                <span class="instructions">Selectionnez le format:</span>    
+                <div class="sticker-ratio-container" id="stickerRatioContainer">
+                    <input type="radio" id="stickerRatioSquare"
+                    name="ratio" value="square" required="required">
+                    <label for="stickerRatioSquare">carré</label>
+                    <input type="radio" id="stickerRatioRectangle"
+                    name="ratio" value="rectangle">
+                    <label for="stickerRatioRectangle">rectangle</label>
+                </div>
+                <span class="instructions">Selectionnez la taille:</span>
+                <div class="sticker-size-container" id="stickerSizeContainer">
+                    <input type="radio" id="stickerSizeSmall"
+                    name="size" value="small" required="required">
+                    <label for="stickerSizeSmall">petit</label>
+                    <input type="radio" id="stickerSizeMedium"
+                    name="size" value="medium">
+                    <label for="stickerSizeMedium">moyen</label>
+                    <input type="radio" id="stickerSizeLarge"
+                    name="size" value="large">
+                    <label for="stickerSizeLarge">grand</label>
+                </div>
+                <button id="createButton" class="create-button">générer</button>
+            </form>
+        </div>
+        <div id="customParamContainer">
+            <div class="custom-size-container">
+                <label for="widthInput">largeur</label>
+                <input type="text" value="500" id="widthInput"></input>         
+                <label for="heightInput">hauteur</label>
                 <input type="text" value="600" id="heightInput"></input>
             </div>
-        </div>
-        <button id="createButton" class="create">create</button>
-        <div>
-            <span>SCREENSHOT</span>
-            <button id="screenshotButton">CLICK</button>
+            <button id="createCustomButton" class="create-button">générer</button>
         </div>
     </div>
-    <div id="DepGes" class="depges"></div>
+    <div id="dpeGesDemoContainer" class="dpegesDemoContainer"></div>
+    <button class="download-button" id="downloadButton">télécharger</button>
 `
+dpeGesDemoInit()
 
-// dpe('dpe', 92)
-// ges('ges', 40)
-params()
-screenshot()
-// DepGes("DepGes", 600, 500, 12, 12)
-
-// min width seems to be 450
-
-
-
-// cepEges("cepeges")
-// barBuilder("dpe") 
