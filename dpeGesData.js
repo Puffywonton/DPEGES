@@ -1,4 +1,4 @@
-const DepGesData = () => {
+const dpeGesData = () => {
     return ([
         {
             letter: "A",
@@ -59,4 +59,4 @@ const DepGesData = () => {
     ])
 }
 
-export default DepGesData
+export default dpeGesData

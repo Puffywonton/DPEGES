@@ -1,4 +1,4 @@
-import depGesData from "./depGesData"
+import dpeGesData from "./dpeGesData"
 import dpeGesParamsData from "./dpeGesParamsData"
 
 // top and bottom legend builder:
@@ -146,7 +146,7 @@ const barContainerBuilder = (barContainerWidthSize, dpeValue, dpeMin, dpeMax, ge
 }
 
 const barsContainerBuilder = (containerWidth, containerHeight, cepValue, egesValue) => {
-    const datas = depGesData()
+    const datas = dpeGesData()
     const params = dpeGesParamsData()
     let barContainerWidthIncrementor = 10
     let barContainerWidthSize = 40
@@ -176,7 +176,7 @@ const barsContainerBuilder = (containerWidth, containerHeight, cepValue, egesVal
     return(barsContainer)
 }
 
-const DepGes = (containerId, containerWidth, containerHeight, cepValue, egesValue) => {
+const dpeGes = (containerId, containerWidth, containerHeight, cepValue, egesValue) => {
     let containerElement = document.getElementById(containerId)
     containerElement.style.width = containerWidth + "px"
     containerElement.style.height = containerHeight + "px"
@@ -184,10 +184,10 @@ const DepGes = (containerId, containerWidth, containerHeight, cepValue, egesValu
     mainContainer.classList.add("main-container")
     mainContainer.appendChild(sideLegendBuilder(containerWidth, containerHeight))
     mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, cepValue, egesValue))
-    if (containerElement.childNodes.length != 0) {
-        containerElement.removeChild(containerElement.firstElementChild)
-    }
+    // if (containerElement.childNodes.length != 0) {
+    //     containerElement.removeChild(containerElement.firstElementChild)
+    // }
     containerElement.appendChild(mainContainer)
 }
 
-export default DepGes
+export default dpeGes
