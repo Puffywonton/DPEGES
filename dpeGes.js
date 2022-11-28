@@ -184,9 +184,6 @@ const dpeGes = (containerId, containerWidth, containerHeight, cepValue, egesValu
     mainContainer.classList.add("main-container")
     mainContainer.appendChild(sideLegendBuilder(containerWidth, containerHeight))
     mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, cepValue, egesValue))
-    // if (containerElement.childNodes.length != 0) {
-    //     containerElement.removeChild(containerElement.firstElementChild)
-    // }
     containerElement.appendChild(mainContainer)
 }
 

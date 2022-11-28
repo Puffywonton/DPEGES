@@ -95,6 +95,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
+  background-color: white;
 }
 
 .top-legend {
@@ -153,7 +154,6 @@ body {
   font-weight: bold;
   padding-left: 15px;
   -webkit-text-stroke: 3px black;
-  padding-top: 0px;
 }
 
 .bar-info-focus {
