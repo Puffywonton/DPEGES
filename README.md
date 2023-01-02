@@ -16,12 +16,13 @@ NPM package : https://www.npmjs.com/package/dpegpe
 ```
 dpeGes(id, width, height, dpeValue, gesValue)
 ```
-
-| id | Id du div container du graphique |
-| width | Largeur du graphique |
-| height | Hauteur du graphique |
-| dpeValue | Valeur du DPE |
-| gesValue | Valeur des GES |
+| Input    | Description |
+| ---      | ---       |
+| id       | Id du div container du graphique |
+| width    | Largeur du graphique             |
+| height   | Hauteur du graphique             |
+| dpeValue | Valeur du DPE                    |
+| gesValue | Valeur des GES                   |
 
 ## UTILISATION
 
