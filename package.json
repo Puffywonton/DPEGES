@@ -2,7 +2,7 @@
   "name": "dpegpe",
   "version": "1.0.0",
   "type": "module",
-  "description": "générateur DPE GPE en javascript",
+  "description": "Générateur DPE GPE en javascript",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
