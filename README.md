@@ -39,7 +39,7 @@ JAVASCRIPT
 
 ```
 import "dpegpe/styles/style.css";
-import dpeGes from "dpegpe/dpeGes";
+import dpeGes from "dpegpe";
 
 // ...
 
