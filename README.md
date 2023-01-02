@@ -53,14 +53,3 @@ dpeGes("dpeGesDemoContainer", 400, 400, 56, 98);
 npm install
 npm run dev
 ```
-
-## TODO
-
--   GES/GPE
--   build & push npm
--   ajouter les légendes (puissance)
--   générer une PNG/SVG
--   norme 2022 : emission CO²
--   rajouter les input width & height
--   écrire la documentation
--   créer github page de demo

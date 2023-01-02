@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Générateur DPE GPE en javascript",
-  "main": "index.js",
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -25,5 +25,15 @@
   "dependencies": {
     "downloadjs": "^1.4.7",
     "html-to-image": "^1.10.8"
+  },
+ 
+  "files": ["dist"],
+  "main": "./dist/dpegpe.umd.cjs",
+  "module": "./dist/dpegpe.js",
+  "exports": {
+    ".": {
+      "import": "./dist/dpegpe.js",
+      "require": "./dist/dpegpe.umd.cjs"
+    }
   }
 }
