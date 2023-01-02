@@ -1,3 +1,4 @@
+import "./scss/style.scss"
 import dpeGesData from "./dpeGesData"
 import dpeGesParamsData from "./dpeGesParamsData"
 

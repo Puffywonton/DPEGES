@@ -23,7 +23,8 @@
   "homepage": "https://github.com/Puffywonton/DPEGPE#readme",
   "dependencies": {
     "downloadjs": "^1.4.7",
-    "html-to-image": "^1.10.8"
+    "html-to-image": "^1.10.8",
+    "sass": "^1.57.1"
   },
   "files": [
     "dist"
