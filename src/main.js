@@ -1,11 +1,10 @@
-import './styles/style.css'
 import { dpeGesDemoInit } from './dpeGesDemoInit'
 
 document.querySelector('#app').innerHTML = `
     <h1>Générateur d'étiquettes DPE/GES</h1>
     <div id="params" class="params">
         <span class="instructions">Entrez les valeurs DPE et GES:</span>
-        <div class="values-container">    
+        <div class="values-container">
             <div class="dpe-container">
                 <label for="dpeInput">valeur du DPE</label>
                 <input type="text" value="12" id="dpeInput"></input>
@@ -13,7 +12,7 @@ document.querySelector('#app').innerHTML = `
             <div class="ges-container">
                 <label for="gesInput">valeur du GES</label>
                 <input type="text" value="50" id="gesInput"></input>
-            </div> 
+            </div>
         </div>
         <span class="instructions">Choisissez entre des dimensions prédéfinies ou personalisées:</span>
         <div class="param-selector">
@@ -22,7 +21,7 @@ document.querySelector('#app').innerHTML = `
         </div>
         <div class="preset-param-container" id="presetParamContainer">
             <form>
-                <span class="instructions">Selectionnez le format:</span>    
+                <span class="instructions">Selectionnez le format:</span>
                 <div class="sticker-ratio-container" id="stickerRatioContainer">
                     <input type="radio" id="stickerRatioSquare"
                     name="ratio" value="square" required="required">
@@ -49,7 +48,7 @@ document.querySelector('#app').innerHTML = `
         <div id="customParamContainer">
             <div class="custom-size-container">
                 <label for="widthInput">largeur</label>
-                <input type="text" value="500" id="widthInput"></input>         
+                <input type="text" value="500" id="widthInput"></input>
                 <label for="heightInput">hauteur</label>
                 <input type="text" value="600" id="heightInput"></input>
             </div>
