@@ -3,6 +3,7 @@
 <p align="center">
 <img src="https://github.com/puffywonton/DPEGPE/blob/main/public/dpeGes.png?raw=true" width="300">
 </p>
+
 ## Générateur de graphique DPE GES
 
 Démo : https://puffywonton.github.io/DPEGPE/
