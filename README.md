@@ -6,7 +6,7 @@ Démo : https://puffywonton.github.io/DPEGPE/
 
 NPM package : https://www.npmjs.com/package/dpegpe
 
-## DOCUMENTATION
+## Documentation
 
 ```js
 dpeGes(id, width, height, dpeValue, gesValue)
@@ -19,7 +19,9 @@ dpeGes(id, width, height, dpeValue, gesValue)
 | dpeValue | Valeur du DPE                    |
 | gesValue | Valeur des GES                   |
 
-## UTILISATION
+## Utilisation
+
+Installer le package via NPM
 
 ```sh
 npm i dpegpe
@@ -43,7 +45,7 @@ import dpeGes from "dpegpe";
 dpeGes("dpeGesDemoContainer", 400, 400, 56, 98);
 ```
 
-## DEVELOPMENT
+## Development
 
 ```sh
 npm install
