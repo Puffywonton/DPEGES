@@ -9,11 +9,12 @@ Avec le DPEGPE, entrez simplement la valeur du dpe/gpe, nous nous occupons de to
 Essayez le DPEGPE, <strong>great sucess!</strong> :D
 
 Démo : https://puffywonton.github.io/DPEGPE/
+
 NPM package : https://www.npmjs.com/package/dpegpe
 
 ## DOCUMENTATION
 
-```
+```js
 dpeGes(id, width, height, dpeValue, gesValue)
 ```
 | Input    | Description |
@@ -26,19 +27,19 @@ dpeGes(id, width, height, dpeValue, gesValue)
 
 ## UTILISATION
 
-```
+```sh
 npm i dpegpe
 ```
 
 HTML
 
-```
+```html
 <div id="dpeGesDemoContainer"></div>
 ```
 
 JAVASCRIPT
 
-```
+```js
 import "dpegpe/styles/style.css";
 import dpeGes from "dpegpe";
 
@@ -50,7 +51,7 @@ dpeGes("dpeGesDemoContainer", 400, 400, 56, 98);
 
 ## DEVELOPMENT
 
-```
+```sh
 npm install
 npm run dev
 ```
