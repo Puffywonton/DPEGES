@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "sass": "^1.57.1",
     "vite": "^3.1.0"
   },
   "repository": {
@@ -23,8 +24,7 @@
   "homepage": "https://github.com/Puffywonton/DPEGPE#readme",
   "dependencies": {
     "downloadjs": "^1.4.7",
-    "html-to-image": "^1.10.8",
-    "sass": "^1.57.1"
+    "html-to-image": "^1.10.8"
   },
   "files": [
     "dist"

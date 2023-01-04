@@ -1,0 +1,106 @@
+/* css for demo */
+
+.github-fork-me {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+.dpeges-demo-container {
+  border: 1px solid black;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.params {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  width: 700px;
+}
+
+.values-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.param-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.param-selector-button {
+  height: 25px;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  &:hover{
+    background-color: lightblue;}
+}
+
+.param-selector-focus {
+    background-color: azure;
+}
+
+.preset-param-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.create-button {
+  width: 100%;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  &:hover{
+    background-color: lightblue;}
+}
+
+.sticker-ratio-container {
+  padding: 10px;
+}
+
+.sticker-size-container{
+  padding: 10px;
+}
+
+.custom-size-container {
+  padding: 10px;
+}
+
+.instructions{
+  font-size: 1.5rem;
+}
+
+.download-button {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  &:hover{
+    background-color: lightblue;}
+}
