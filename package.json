@@ -1,8 +1,8 @@
 {
-  "name": "dpegpe",
+  "name": "dpeges",
   "version": "1.0.3",
   "type": "module",
-  "description": "Générateur DPE GPE en javascript",
+  "description": "Générateur DPE GES en javascript",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -17,23 +17,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Puffywonton/DPEGPE.git"
+    "url": "git+https://github.com/Puffywonton/DPEGES.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Puffywonton/DPEGPE/issues"
+    "url": "https://github.com/Puffywonton/DPEGES/issues"
   },
-  "homepage": "https://github.com/Puffywonton/DPEGPE#readme",
+  "homepage": "https://github.com/Puffywonton/DPEGES#readme",
   "files": [
     "dist"
   ],
-  "main": "./dist/dpegpe.umd.cjs",
-  "module": "./dist/dpegpe.es.js",
+  "main": "./dist/dpeges.umd.cjs",
+  "module": "./dist/dpeges.es.js",
   "exports": {
     ".": {
-      "import": "./dist/dpegpe.es.js",
-      "require": "./dist/dpegpe.umd.cjs"
+      "import": "./dist/dpeges.es.js",
+      "require": "./dist/dpeges.umd.cjs"
     }
   }
 }
