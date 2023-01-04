@@ -1,33 +1,33 @@
 // dpeges stuff
 
-.main-container{
+.main-container {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   background-color: white;
 }
 
-.top-legend{
+.top-legend {
   color: #329837;
   display: flex;
   align-items: flex-end;
   font-weight: bold;
 }
 
-.bottom-legend{
+.bottom-legend {
   color: #e4251f;
   display: flex;
   align-items: flex-start;
   font-weight: bold;
 }
 
-.side-legend{
+.side-legend {
   position: absolute;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   left: 0;
   padding-right: 7px;
@@ -36,7 +36,7 @@
   font-weight: bold;
 }
 
-.container-bars{
+.container-bars {
   // width: 70%;
   height: 100%;
   // background-color: yellow;
@@ -45,15 +45,15 @@
   justify-content: space-between;
 }
 
-.container-bar{
+.container-bar {
   width: 100%;
   position: relative;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.bar-letter{
+.bar-letter {
   position: absolute;
   z-index: 10;
   color: white;
@@ -61,7 +61,7 @@
   padding-left: 15px;
 }
 
-.bar-letter-focus{
+.bar-letter-focus {
   position: absolute;
   z-index: 10;
   color: white;
@@ -70,7 +70,7 @@
   -webkit-text-stroke: 3px black;
 }
 
-.bar-info-focus{
+.bar-info-focus {
   position: absolute;
   // height: 100%;
   height: calc(100%);
@@ -82,16 +82,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  &:after{
+  &:after {
     content: "";
     background-color: black;
     width: 3px;
     height: 90%;
   }
-  &.bar-info-focus :nth-child(2) {order: 3;} //WTF O_O ca marche!
+  &.bar-info-focus :nth-child(2) {
+    order: 3;
+  } //WTF O_O ca marche!
 }
 
-.focus-dpe-info{
+.focus-dpe-info {
   color: black;
   width: 50%;
   height: 100%;
@@ -99,7 +101,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  &:after{
+  &:after {
     content: "consommation";
     position: absolute;
     font-weight: bold;
@@ -107,7 +109,7 @@
   }
 }
 
-.focus-ges-info{
+.focus-ges-info {
   padding-top: 2px;
   color: black;
   width: 50%;
@@ -116,7 +118,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  &:after{
+  &:after {
     content: "émissions";
     position: absolute;
     font-weight: bold;
@@ -127,4 +129,3 @@
 .focus-legend {
   font-weight: bold;
 }
-

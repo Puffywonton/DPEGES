@@ -13,7 +13,13 @@ NPM package : https://www.npmjs.com/package/dpeges
 ## Documentation
 
 ```js
-dpeGes(id, width, height, dpeValue, gesValue);
+dpeGes({
+  containerId: "dpeGesDemoContainer",
+  dpeValue: 56,
+  gesValue: 98,
+  containerWidth: 600,
+  containerHeight: 600,
+});
 ```
 
 | Input    | Description                      |
@@ -41,12 +47,18 @@ HTML
 JAVASCRIPT
 
 ```js
-import "dpeges/styles/style.css";
+import "dpeges/dist/style.css";
 import dpeGes from "dpeges";
 
 // ...
 
-dpeGes("dpeGesDemoContainer", 400, 400, 56, 98);
+dpeGes({
+  containerId: "dpeGesDemoContainer",
+  dpeValue: 56,
+  gesValue: 98,
+  containerWidth: 600,
+  containerHeight: 600,
+});
 ```
 
 ## Development
