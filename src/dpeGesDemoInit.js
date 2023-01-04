@@ -1,24 +1,28 @@
 import download from "downloadjs"
 import dpeGes from "./dpeGes"
 import * as htmlToImage from 'html-to-image';
+import "./scss/demo.scss"
 
 const launchDpeGes = (demoContainer, heightValue, widthValue, dpeValue, gesValue) => {
     let dpeGesDemoContainer = document.getElementById("dpeGesDemoContainer")
     if (dpeGesDemoContainer.childNodes.length != 0) {
         dpeGesDemoContainer.removeChild(dpeGesDemoContainer.firstElementChild)
     }
-    dpeGes(demoContainer, heightValue, widthValue, dpeValue, gesValue)
+    dpeGes({ containerId: demoContainer, dpeValue: dpeValue, gesValue: gesValue, containerWidth: widthValue, containerHeight: heightValue })
     initDownloadOption()
 }
 
-const displaySwitch = (optionOne, optionTwo) => {
+const displaySwitch = (optionOne, optionTwo, buttonOne, buttonTwo) => {
     if (optionOne.style.display === "none") {
-            optionOne.style.display = "block"
+        optionOne.style.display = "block"
+        buttonOne.classList.add('param-selector-focus')
         } else {
             optionOne.style.display = "none"
+            buttonOne.classList.remove('param-selector-focus');
         }
         if (optionTwo.style.display === "block") {
             optionTwo.style.display = "none"
+            buttonTwo.classList.remove('param-selector-focus');
         }
 }
 
@@ -47,13 +51,15 @@ export function dpeGesDemoInit() {
     const customParamBtn = document.getElementById("customParamBtn")
     const customParamContainer = document.getElementById("customParamContainer")
     customParamContainer.style.display = "none";
+    displaySwitch(presetParamContainer, customParamContainer, presetParamBtn, customParamBtn)
+    // presetParamBtn.classList.add('param-selector-focus')
     presetParamBtn.addEventListener("click", (e) => {
         e.preventDefault()
-        displaySwitch(presetParamContainer, customParamContainer)
+        displaySwitch(presetParamContainer, customParamContainer, presetParamBtn, customParamBtn)
     })
     customParamBtn.addEventListener("click", (e) => {
         e.preventDefault()
-        displaySwitch(customParamContainer, presetParamContainer)
+        displaySwitch(customParamContainer, presetParamContainer, customParamBtn, presetParamBtn)
     })
     const createBtn = document.getElementById("createButton")
     let ratio
@@ -69,12 +75,12 @@ export function dpeGesDemoInit() {
     createBtn.addEventListener("click", (e) => {
         e.preventDefault()
         if (ratio === undefined || size === undefined) {
-            alert("selectionnez format et/ou taille")
-            return
+            ratio = "square"
+            size = "medium"
         }
         let dpeValue = document.getElementById('dpeInput').value
         let gesValue = document.getElementById('gesInput').value
-        let heightValue = 750
+        let heightValue = 550
         let widthValue
         if (size === "large") {
             heightValue = heightValue * 1.2
@@ -86,7 +92,7 @@ export function dpeGesDemoInit() {
             widthValue = heightValue 
         }
         if (ratio === "rectangle") {
-            widthValue = heightValue * 0.7
+            widthValue = heightValue * 0.8
         }
         launchDpeGes("dpeGesDemoContainer", heightValue, widthValue, dpeValue, gesValue)
     })

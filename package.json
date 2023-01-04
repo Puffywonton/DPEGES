@@ -6,10 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "gh-pages": "vite build --config vite.gh-page.config.js",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^3.1.0"
+    "sass": "^1.57.1",
+    "vite": "^3.1.0",
+    "downloadjs": "^1.4.7",
+    "html-to-image": "^1.10.8"
   },
   "repository": {
     "type": "git",
@@ -21,11 +25,6 @@
     "url": "https://github.com/Puffywonton/DPEGPE/issues"
   },
   "homepage": "https://github.com/Puffywonton/DPEGPE#readme",
-  "dependencies": {
-    "downloadjs": "^1.4.7",
-    "html-to-image": "^1.10.8",
-    "sass": "^1.57.1"
-  },
   "files": [
     "dist"
   ],

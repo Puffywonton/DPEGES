@@ -177,14 +177,14 @@ const barsContainerBuilder = (containerWidth, containerHeight, cepValue, egesVal
     return(barsContainer)
 }
 
-const dpeGes = (containerId, containerWidth, containerHeight, cepValue, egesValue) => {
+const dpeGes = ({ containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, containerWidth: containerWidth = 400, containerHeight: containerHeight = 400 }) => {
     let containerElement = document.getElementById(containerId)
     containerElement.style.width = containerWidth + "px"
     containerElement.style.height = containerHeight + "px"
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("main-container")
     mainContainer.appendChild(sideLegendBuilder(containerWidth, containerHeight))
-    mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, cepValue, egesValue))
+    mainContainer.appendChild(barsContainerBuilder(containerWidth, containerHeight, dpeValue, gesValue))
     containerElement.appendChild(mainContainer)
 }
 
