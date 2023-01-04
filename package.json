@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "gh-pages": "vite build --config vite.gh-page.config.js",
     "preview": "vite preview"
   },
   "devDependencies": {
