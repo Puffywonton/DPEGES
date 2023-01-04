@@ -1,7 +1,7 @@
 export default {
   // config options
   root: 'src',
-  base: '/DPEGPE/',
+  base: '/DPEGES/',
   build: {
     outDir: '../dist',
     emptyOutDir: true

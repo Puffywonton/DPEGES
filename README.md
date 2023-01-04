@@ -1,14 +1,14 @@
 # DPE GES
 
 <p align="center">
-<img src="https://github.com/puffywonton/DPEGPE/blob/main/public/dpeGes.png?raw=true" width="300">
+<img src="https://github.com/puffywonton/DPEGES/blob/main/public/dpeGes.png?raw=true" width="300">
 </p>
 
 ## Générateur de graphique DPE GES
 
-Démo : https://puffywonton.github.io/DPEGPE/
+Démo : https://puffywonton.github.io/DPEGES/
 
-NPM package : https://www.npmjs.com/package/dpegpe
+NPM package : https://www.npmjs.com/package/dpeges
 
 ## Documentation
 
@@ -29,7 +29,7 @@ dpeGes(id, width, height, dpeValue, gesValue);
 Installer le package via NPM
 
 ```sh
-npm i dpegpe
+npm i dpeges
 ```
 
 HTML
@@ -41,8 +41,8 @@ HTML
 JAVASCRIPT
 
 ```js
-import "dpegpe/styles/style.css";
-import dpeGes from "dpegpe";
+import "dpeges/styles/style.css";
+import dpeGes from "dpeges";
 
 // ...
 
