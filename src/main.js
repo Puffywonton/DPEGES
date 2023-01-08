@@ -59,4 +59,4 @@ import dpeGesv2 from "./dpeGesv2"
 // `
 // dpeGesDemoInit()
 document.querySelector('#app').innerHTML = `<div id="dpeGesDemoContainer" class="dpeges-demo-container"></div>`
-dpeGesv2({ containerId: "dpeGesDemoContainer", dpeValue: 36, gesValue: 36})
+dpeGesv2({ containerId: "dpeGesDemoContainer", dpeValue: 10, gesValue: 10})

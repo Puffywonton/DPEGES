@@ -33,13 +33,14 @@ const barsGenerator = (dpeValue, gesValue) => {
 
 const barBuilder = (barBaseWidthSize, barColor, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter) => {
     let barContainer = document.createElement("div")
-    
+    let barArrowContainer = document.createElement("div")
+    barArrowContainer.classList.add("dpeGes-barArrowContainer")
     let barBase = document.createElement("div")
     barBase.classList.add("dpeGes-barBase")
-    barContainer.appendChild(barBase)
+    barArrowContainer.appendChild(barBase)
     let barTipContainer = document.createElement("div")
     let barTip = document.createElement("div")
-    barTip.classList.add("dpeGes-barTip")
+    barTip.classList.add("dpeGes-barTip")  
     barBase.style.backgroundColor = barColor
     barTip.style.backgroundColor = barColor
     if (isFocusChecker(dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax)) {
@@ -47,13 +48,19 @@ const barBuilder = (barBaseWidthSize, barColor, dpeValue, dpeMin, dpeMax, gesVal
         barContainer.classList.add("dpeGes-barContainer-focus")
         barTipContainer.classList.add("dpeGes-barTipContainer-focus")
         barBase.style.width = (barBaseWidthSize - 10) + "%"
+        let focusLegendContainer = document.createElement("div")
+        focusLegendContainer.style.width = "45%"
+        focusLegendContainer.style.backgroundColor = barColor
+        focusLegendContainer.style.borderRight = "1px solid"
+        barContainer.appendChild(focusLegendContainer)
     } else {
         barBase.style.width = barBaseWidthSize + "%"
         barContainer.classList.add("dpeGes-barContainer")
         barTipContainer.classList.add("dpeGes-barTipContainer")
     }
     barTipContainer.appendChild(barTip)
-    barContainer.appendChild(barTipContainer)
+    barArrowContainer.appendChild(barTipContainer)
+    barContainer.appendChild(barArrowContainer)
     return(barContainer)
 }
 
