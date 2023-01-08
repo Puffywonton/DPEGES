@@ -7,6 +7,15 @@ const isFocusChecker = (dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax ) => 
     } 
 }
 
+const barLetterBuilder = (letter, classList, size) => {
+    let barLetter = document.createElement("span")
+    barLetter.innerHTML = letter
+    // barLetter.classList.add(classList);
+    // barLetter.style.fontSize = size + "px"
+    barLetter.style.fontSize = "10vw"
+    return(barLetter)
+}
+
 const barsGenerator = (dpeValue, gesValue) => {
     const datas = dpeGesData()
     let barBaseWidthIncrementor = 10
@@ -33,20 +42,23 @@ const barsGenerator = (dpeValue, gesValue) => {
 
 const barBuilder = (barBaseWidthSize, barColor, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter) => {
     let barContainer = document.createElement("div")
+    barContainer.classList.add("dpeGes-barContainer")
     let barArrowContainer = document.createElement("div")
     barArrowContainer.classList.add("dpeGes-barArrowContainer")
     let barBase = document.createElement("div")
     barBase.classList.add("dpeGes-barBase")
     barArrowContainer.appendChild(barBase)
     let barTipContainer = document.createElement("div")
+    barTipContainer.classList.add("dpeGes-barTipContainer")
     let barTip = document.createElement("div")
     barTip.classList.add("dpeGes-barTip")  
     barBase.style.backgroundColor = barColor
     barTip.style.backgroundColor = barColor
+    barBase.appendChild(barLetterBuilder(letter))
     if (isFocusChecker(dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax)) {
         console.log("it is this one", letter)
-        barContainer.classList.add("dpeGes-barContainer-focus")
-        barTipContainer.classList.add("dpeGes-barTipContainer-focus")
+        barContainer.style.height = "18%"
+        barTipContainer.style.width = "36%"
         barBase.style.width = (barBaseWidthSize - 10) + "%"
         let focusLegendContainer = document.createElement("div")
         focusLegendContainer.style.width = "45%"
@@ -55,8 +67,8 @@ const barBuilder = (barBaseWidthSize, barColor, dpeValue, dpeMin, dpeMax, gesVal
         barContainer.appendChild(focusLegendContainer)
     } else {
         barBase.style.width = barBaseWidthSize + "%"
-        barContainer.classList.add("dpeGes-barContainer")
-        barTipContainer.classList.add("dpeGes-barTipContainer")
+        barContainer.style.height = "12%"
+        barTipContainer.style.width = "24%"
     }
     barTipContainer.appendChild(barTip)
     barArrowContainer.appendChild(barTipContainer)

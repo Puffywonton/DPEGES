@@ -7,31 +7,25 @@
     width: 100%;
     height: 100%;
     // background-color: red;
+    padding: 10px;
     
 }
-
 .dpeGes-barArrowContainer{
-    // background-color: purple;
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: start;
 }
-
 .dpeGes-barsContainer{
-    // width: 50%;
     width: 100%;
     height: 100%;
-    // background-color: green;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
-
 .dpeGes-barContainer{
-    // background-color: pink;
     width: 100%;
     height: 12%;
     display: flex;
@@ -41,30 +35,10 @@
     width: 24%;
     height: 100%;
     overflow: hidden;
-    // background-color: orange;
 }
-
-.dpeGes-barContainer-focus{
-    // background-color: pink;
-    width: 100%;
-    height: 18%;
-    // height: 100%;
-    display: flex;
-    justify-content: end;
-}
-
-.dpeGes-barTipContainer-focus{
-    width: 36%;
-    height: 100%;
-    overflow: hidden;
-    // background-color: orange;
-}
-
 .dpeGes-barBase{
     height: 100%;
-    background-color: red;
 }
-
 .dpeGes-barTip{
     width: 100%;
     height: 100%;
