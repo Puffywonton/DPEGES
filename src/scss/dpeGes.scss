@@ -1,0 +1,70 @@
+// * {
+//   box-sizing: border-box;
+//   font-family: sans-serif;
+// }
+
+.dpeGes-main-container {
+    width: 100%;
+    height: 100%;
+    // background-color: red;
+    display: flex;
+    justify-content: end;
+}
+
+.dpeGes-barsContainer{
+    width: 50%;
+    height: 100%;
+    // background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dpeGes-barContainer{
+    // background-color: pink;
+    height: 12%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.dpeGes-barTipContainer{
+    width: 24%;
+    height: 100%;
+    overflow: hidden;
+    // background-color: orange;
+}
+
+.dpeGes-barContainer-focus{
+    // background-color: pink;
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.dpeGes-barTipContainer-focus{
+    width: 36%;
+    height: 100%;
+    overflow: hidden;
+    // background-color: orange;
+}
+
+.dpeGes-barBase{
+    height: 100%;
+    background-color: red;
+}
+
+.dpeGes-barTip{
+    width: 100%;
+    height: 100%;
+    rotate: 45deg;
+    transform: translateX(-4vh)translateY(4vh);
+    transform-origin: center;
+    background-color: lightblue;
+    &:after{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    //after is a css trick used to keep the square locked as a square
+}

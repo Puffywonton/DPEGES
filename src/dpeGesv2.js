@@ -1,0 +1,69 @@
+import "./scss/dpeGes.scss"
+import dpeGesData from "./dpeGesData"
+
+const isFocusChecker = (dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax ) => {
+    if (((dpeValue >= dpeMin && dpeValue <= dpeMax) && gesValue <= gesMax) || ((gesValue >= gesMin && gesValue <= gesMax) && dpeValue <= gesMax)) {
+        return(true)
+    } 
+}
+
+const barsGenerator = (dpeValue, gesValue) => {
+    const datas = dpeGesData()
+    let barBaseWidthIncrementor = 10
+    let barBaseWidthSize = 15
+    let barsContainer = document.createElement("div")
+    barsContainer.classList.add("dpeGes-barsContainer")
+    for (let data of datas) {
+        barsContainer.append(barBuilder(
+            barBaseWidthSize,
+            data.color,
+            dpeValue,
+            data.cepMin,
+            data.cepMax,
+            gesValue,
+            data.egesMin,
+            data.egesMax,
+            data.letter,
+            ))
+        console.log(data.color, barBaseWidthSize)
+        barBaseWidthSize = barBaseWidthSize + barBaseWidthIncrementor;
+    }
+    return(barsContainer)
+}
+
+const barBuilder = (barBaseWidthSize, barColor, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter) => {
+    let barContainer = document.createElement("div")
+    
+    let barBase = document.createElement("div")
+    barBase.classList.add("dpeGes-barBase")
+    barContainer.appendChild(barBase)
+    let barTipContainer = document.createElement("div")
+    let barTip = document.createElement("div")
+    barTip.classList.add("dpeGes-barTip")
+    barBase.style.backgroundColor = barColor
+    barTip.style.backgroundColor = barColor
+    if (isFocusChecker(dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax)) {
+        console.log("it is this one", letter)
+        barContainer.classList.add("dpeGes-barContainer-focus")
+        barTipContainer.classList.add("dpeGes-barTipContainer-focus")
+        barBase.style.width = (barBaseWidthSize - 10) + "%"
+    } else {
+        barBase.style.width = barBaseWidthSize + "%"
+        barContainer.classList.add("dpeGes-barContainer")
+        barTipContainer.classList.add("dpeGes-barTipContainer")
+    }
+    barTipContainer.appendChild(barTip)
+    barContainer.appendChild(barTipContainer)
+    return(barContainer)
+}
+
+
+const dpeGesv2 = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, }) => {
+    let containerElement = document.getElementById(containerId)
+    let mainContainer = document.createElement("div");
+    mainContainer.classList.add("dpeGes-main-container")
+    mainContainer.appendChild(barsGenerator(dpeValue, gesValue))
+    containerElement.appendChild(mainContainer)
+}
+
+export default dpeGesv2

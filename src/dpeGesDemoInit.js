@@ -1,5 +1,6 @@
 import download from "downloadjs"
 import dpeGes from "./dpeGes"
+import dpeGesv2 from "./dpeGesv2"
 import * as htmlToImage from 'html-to-image';
 import "./scss/demo.scss"
 
@@ -8,7 +9,7 @@ const launchDpeGes = (demoContainer, heightValue, widthValue, dpeValue, gesValue
     if (dpeGesDemoContainer.childNodes.length != 0) {
         dpeGesDemoContainer.removeChild(dpeGesDemoContainer.firstElementChild)
     }
-    dpeGes({ containerId: demoContainer, dpeValue: dpeValue, gesValue: gesValue, containerWidth: widthValue, containerHeight: heightValue })
+    // dpeGes({ containerId: demoContainer, dpeValue: dpeValue, gesValue: gesValue, containerWidth: widthValue, containerHeight: heightValue })
     initDownloadOption()
 }
 
@@ -105,4 +106,6 @@ export function dpeGesDemoInit() {
         let widthValue = document.getElementById('widthInput').value
         launchDpeGes("dpeGesDemoContainer", heightValue, widthValue, dpeValue, gesValue)
     })
+    launchDpeGes("dpeGesDemoContainer", 500, 500, 12, 50)
+    
 }
