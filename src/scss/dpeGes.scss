@@ -2,13 +2,26 @@
 //   box-sizing: border-box;
 //   font-family: sans-serif;
 // }
-
+.dpeGes-barLetter {
+  position: relative;
+  z-index: 10;
+  color: white;
+  font-weight: bold;
+//   padding-left: 10px;
+  left: 2px;
+}
 .dpeGes-main-container {
     width: 100%;
     height: 100%;
+    // height: 100%;
+    // padding-bottom: 50%;
     // background-color: red;
-    padding: 10px;
-    
+    // padding: 10px;
+    &:after{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
 }
 .dpeGes-barArrowContainer{
     width: 50%;
@@ -32,20 +45,36 @@
     justify-content: end;
 }
 .dpeGes-barTipContainer{
+    // background-color: purple;
     width: 24%;
     height: 100%;
-    overflow: hidden;
+    transform: translateX(-2.1vw)translateY(0.9vw);
+    // overflow: hidden;
+}
+.dpeGes-barTipContainer-focus{
+    // background-color: purple;
+    width: 24%;
+    height: 100%;
+    transform: translateX(-3.2vw)translateY(1.3vw);
+    // overflow: hidden;
 }
 .dpeGes-barBase{
     height: 100%;
+    // border-left: 3px solid black;
+    // border-top: 3px solid black;
+    // border-bottom: 3px solid black;
+    z-index: 10;
 }
 .dpeGes-barTip{
-    width: 100%;
-    height: 100%;
+    width: 70.7%;
+    height: 70.7%;
     rotate: 45deg;
-    transform: translateX(-4vh)translateY(4vh);
+    // border-top: 3px solid black;
+    // border-right: 3px solid black;
+    z-index: -100;
+    // border: 3px solid black;
+    // transform: translateX(0vh)translateY(4vh);
     transform-origin: center;
-    background-color: lightblue;
     &:after{
         content: "";
         display: block;
