@@ -1,7 +1,7 @@
 import "./scss/dpeGes.scss"
 import dpeGesData from "./dpeGesData"
 
-const isFocusChecker = (dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax ) => {
+const isFocusChecker = (dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax) => {
     if (((dpeValue >= dpeMin && dpeValue <= dpeMax) && gesValue <= gesMax) || ((gesValue >= gesMin && gesValue <= gesMax) && dpeValue <= gesMax)) {
         return(true)
     } 
@@ -30,7 +30,7 @@ const barsGenerator = (dpeValue, gesValue) => {
     topLegend.innerHTML = "hello"
     barsContainer.appendChild(topLegend)
     for (let data of datas) {
-        barsContainer.append(barBuilder(
+        barsContainer.append(barGenerator(
             barBaseWidthSize,
             data.color,
             dpeValue,
@@ -89,13 +89,85 @@ const barBuilder = (barBaseWidthSize, barColor, dpeValue, dpeMin, dpeMax, gesVal
     barContainer.appendChild(barArrowContainer)
     return(barContainer)
 }
+const barGenerator = (barBaseWidthSize, color, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter) => {
+    let barContainer = document.createElement("div")
+    barContainer.classList.add("toto-barContainer")
+    let isFocus = false
+    let tipWidth = "15"
+    if (isFocusChecker(dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax)) {
+        isFocus = true
+        tipWidth = "30"
+        barContainer.style.height = "20%"
+    } else {
+        barContainer.style.height = "10%"
+    }
+    barContainer.appendChild(arrowBuilder(barBaseWidthSize, tipWidth, color, letter, isFocus))
+    barContainer.appendChild(legendBuilder())
+    return(barContainer)
+}
 
+const arrowBuilder = (bodyWidth, tipWidth, color, letter, isFocus) => {
+    let arrowContainer = document.createElement("div")
+    arrowContainer.classList.add("toto-arrowContainer")
+    arrowContainer.appendChild(arrowBodyBuilder(bodyWidth, color, letter, isFocus))
+    arrowContainer.appendChild(arrowTipBuilder(tipWidth, color, isFocus))
+    return(arrowContainer)
+}
+
+const arrowBodyBuilder = (width, color, letter, isFocus) => {
+    let arrowBody = document.createElement("div")
+    arrowBody.classList.add("toto-arrowBody")
+    arrowBody.style.width = width + "%"
+    arrowBody.style.height = "100%"
+    arrowBody.style.backgroundColor = color
+    if (isFocus) {
+        arrowBody.style.borderTop = "solid 2px black"
+        arrowBody.style.borderLeft = "solid 2px black"
+        arrowBody.style.borderBottom = "solid 2px black"
+    }
+    arrowBody.appendChild(barLetterBuilder(letter, 5))
+    return(arrowBody)
+}
+
+const arrowTipBuilder = (width, color, isFocus) => {
+    let arrowTip = document.createElement("div")
+    arrowTip.classList.add("toto-arrowTip")
+    arrowTip.style.width = width + "px" // link this to the height input
+    let styleStroke = "none"
+    if (isFocus) {
+       styleStroke = "black"
+    }
+    arrowTip.insertAdjacentHTML('afterbegin',
+        `
+        <svg 
+            height='100%'
+            width='100%' 
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+        >
+            <path 
+                d="M 0 0 L 97 50 L 0 100 " 
+                vector-effect="non-scaling-stroke"
+                style="stroke:`+styleStroke+`;stroke-width:2;fill:`+color+`"
+            />
+        </svg>
+        `
+    )
+    return(arrowTip)
+}
+
+const legendBuilder = () => {
+    let legendContainer = document.createElement("div")
+    legendContainer.classList.add("toto-legendContainer")
+    return(legendContainer)
+}
 
 const dpeGesv2 = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, }) => {
     let containerElement = document.getElementById(containerId)
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("dpeGes-main-container")
     mainContainer.appendChild(barsGenerator(dpeValue, gesValue))
+    // mainContainer.appendChild(barGenerator())
     containerElement.appendChild(mainContainer)
 }
 

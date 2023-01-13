@@ -2,6 +2,35 @@
 //   box-sizing: border-box;
 //   font-family: sans-serif;
 // }
+
+.toto-barContainer{
+    width: 100%;
+    height: 10%;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+}
+.toto-arrowContainer{
+    width: 50%;
+    height: 100%;
+    background-color: silver;
+    display: flex;
+}
+.toto-arrowBody{
+    height: 100%;
+    background-color: lightpink;
+}
+.toto-arrowTip{
+    height: 100%;
+    background-color: lightsalmon;
+}
+.toto-legendContainer{
+    width: 50%;
+    height: 100%;
+    background-color: lightgreen;
+}
+
 .dpeGes-barLetter {
   position: relative;
   z-index: 10;
