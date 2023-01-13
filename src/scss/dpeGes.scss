@@ -1,12 +1,29 @@
-// * {
-//   box-sizing: border-box;
-//   font-family: sans-serif;
-// }
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.dpeGes-dpeGesLegendContainer{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+    align-items: center;
+    span{
+        font-weight: bold;
+    }
+}
+
+.dpeGes-gesLegendContainer{
+    width: 49%;
+    height: 100%;
+    background-color: lightblue;
+}
 
 .toto-barContainer{
     width: 100%;
-    height: 10%;
-    background-color: lightblue;
+    height: 15%;
+    background-color: lightgrey;
     display: flex;
     flex-direction: row-reverse;
     justify-content: end;
@@ -14,31 +31,55 @@
 .toto-arrowContainer{
     width: 50%;
     height: 100%;
-    background-color: silver;
+    // background-color: brown;
     display: flex;
 }
 .toto-arrowBody{
     height: 100%;
-    background-color: lightpink;
+    // background-color: lightpink;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    // overflow: visible;
+    z-index: 20;
 }
 .toto-arrowTip{
     height: 100%;
-    background-color: lightsalmon;
+    z-index: 10;
+    // background-color: lightsalmon;
 }
-.toto-legendContainer{
+.dpeGes-legendContainer{
     width: 50%;
     height: 100%;
-    background-color: lightgreen;
+    // background-color: lightgreen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    &:after {
+    content: "";
+    background-color: black;
+    width: 2px;
+    height: 90%;
+    }
+    &.dpeGes-legendContainer :nth-child(2) {
+        order: 3;
+    }
 }
 
 .dpeGes-barLetter {
-  position: relative;
-  z-index: 10;
-  color: white;
-  font-weight: bold;
-//   padding-left: 10px;
-  left: 2px;
+    color: white;
+    font-weight: bold;
+    padding-left: 5px;
 }
+
+.dpeGes-barLetter-focus{
+    -webkit-text-stroke: 2px black;
+    padding-left: 0px;
+}
+
 .dpeGes-main-container {
     width: 100%;
     height: 100%;
@@ -64,12 +105,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
 }
 .dpeGes-barContainer{
     width: 100%;
-    height: 12%;
+    height: 15%;
     display: flex;
     justify-content: end;
 }
