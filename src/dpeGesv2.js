@@ -7,45 +7,54 @@ const isFocusChecker = (dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax) => {
     } 
 }
 
-const barLetterBuilder = (letter, letterSize, isFocus) => {
+const barLetterBuilder = (letter, stickerHeight, isFocus) => {
     let barLetter = document.createElement("span")
     barLetter.innerHTML = letter
-    barLetter.classList.add("dpeGes-barLetter");
-    let fontSize = letterSize
+    barLetter.classList.add("dpeGes-bar-letter")
+    let fontSize = stickerHeight / 10
     if (isFocus) {
-        fontSize = (letterSize * 2)
-        barLetter.classList.add("dpeGes-barLetter-focus")
+        fontSize = (stickerHeight / 5)
+        barLetter.classList.add("dpeGes-bar-letter-focus")
     }
+    console.log(fontSize)
     barLetter.style.fontSize = fontSize + "px"
     return(barLetter)
 }
 
-const topLegendBuilder = () => {
-    let topLegend = document.createElement("div")
-    topLegend.style.width = "50%"
-    topLegend.innerHTML = "logement très performant"
-    topLegend.style.color = "#329837"
-    topLegend.style.fontSize = "12px"
-    topLegend.style.fontWeight = "bold"
-    return(topLegend)
+const topBottomLegendBuilder = (type, stickerHeight) => {
+    const topLegendData = {
+        innerHtml: "logement très performant",
+        alignItems: "end",
+        color: "#329837"
+    }
+    const bottomLegendData = {
+        innerHtml: "passoire énergétique",
+        alignItems: "start",
+        color: "#e4251f"
+    }
+    let data = {}
+    if (type === "top") {
+        data = topLegendData
+    } else if (type === "bottom") {
+        data = bottomLegendData
+    }
+    let legendFontSize = stickerHeight / 50
+    let legend = document.createElement("div")
+    legend.classList.add("dpeGes-top-bottom-legend")
+    legend.style.alignItems = data.alignItems
+    legend.style.fontSize = legendFontSize + "px"
+    legend.innerHTML = data.innerHtml
+    legend.style.color = data.color
+    return(legend)
 }
-const bottomLegendBuilder = () => {
-    let bottomLegend = document.createElement("div")
-    bottomLegend.style.width = "50%"
-    bottomLegend.innerHTML = "passoire énergétique"
-    bottomLegend.style.color = "#e4251f"
-    bottomLegend.style.fontSize = "12px"
-    bottomLegend.style.fontWeight = "bold"
-    return(bottomLegend)
 
-}
-const barsGenerator = (dpeValue, gesValue) => {
+const barsGenerator = (dpeValue, gesValue, stickerHeight) => {
     const datas = dpeGesData()
     let barBaseWidthIncrementor = 10
-    let barBaseWidthSize = 32
+    let barBaseWidthSize = 36
     let barsContainer = document.createElement("div")
-    barsContainer.classList.add("dpeGes-barsContainer")
-    barsContainer.appendChild(topLegendBuilder())
+    barsContainer.classList.add("dpeGes-bars-container")
+    barsContainer.appendChild(topBottomLegendBuilder("top", stickerHeight))
     for (let data of datas) {
         barsContainer.append(barGenerator(
             barBaseWidthSize,
@@ -57,59 +66,57 @@ const barsGenerator = (dpeValue, gesValue) => {
             data.egesMin,
             data.egesMax,
             data.letter,
+            stickerHeight,
             ))
-        console.log(data.color, barBaseWidthSize)
         barBaseWidthSize = barBaseWidthSize + barBaseWidthIncrementor;
     }
-    barsContainer.appendChild(bottomLegendBuilder())
+    barsContainer.appendChild(topBottomLegendBuilder("bottom", stickerHeight))
     return(barsContainer)
 }
-const barGenerator = (barBaseWidthSize, color, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter) => {
+const barGenerator = (barBaseWidthSize, color, dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax, letter, stickerHeight) => {
     let barContainer = document.createElement("div")
-    barContainer.classList.add("toto-barContainer")
-    barContainer.style.height = "50px"
+    barContainer.classList.add("dpeGes-bar-container")
     let isFocus = false
     let tipWidth = "15"
     if (isFocusChecker(dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax)) {
         isFocus = true
         tipWidth = "30"
-        barContainer.style.height = "20%"
+        barContainer.style.height = "22%"
         
     } else {
-        barContainer.style.height = "10%"
+        barContainer.style.height = "11%"
     }
-    barContainer.appendChild(arrowBuilder(barBaseWidthSize, tipWidth, color, letter, "60", isFocus))
+    barContainer.appendChild(arrowBuilder(barBaseWidthSize, tipWidth, color, letter, stickerHeight, isFocus))
     if (isFocus) {
-        barContainer.appendChild(legendBuilder(dpeValue, gesValue))
+        barContainer.appendChild(legendBuilder(dpeValue, gesValue, stickerHeight))
     }
     return (barContainer)
 }
 
-const arrowBuilder = (bodyWidth, tipWidth, color, letter, letterSize, isFocus) => {
+const arrowBuilder = (bodyWidth, tipWidth, color, letter, stickerHeight, isFocus) => {
     let arrowContainer = document.createElement("div")
-    arrowContainer.classList.add("toto-arrowContainer")
-    arrowContainer.appendChild(arrowBodyBuilder(bodyWidth, color, letter, letterSize, isFocus))
+    arrowContainer.classList.add("dpeGes-arrow-container")
+    arrowContainer.appendChild(arrowBodyBuilder(bodyWidth, color, letter, stickerHeight, isFocus))
     arrowContainer.appendChild(arrowTipBuilder(tipWidth, color, isFocus))
     return(arrowContainer)
 }
 
-const arrowBodyBuilder = (width, color, letter, letterSize, isFocus) => {
+const arrowBodyBuilder = (width, color, letter, stickerHeight, isFocus) => {
     let arrowBody = document.createElement("div")
-    arrowBody.classList.add("toto-arrowBody")
+    arrowBody.classList.add("dpeGes-arrow-body")
     arrowBody.style.width = width + "%"
-    arrowBody.style.height = "100%"
     arrowBody.style.backgroundColor = color
     if (isFocus) {
         arrowBody.style.borderTop = "solid 2px black"
         arrowBody.style.borderBottom = "solid 2px black"
     }
-    arrowBody.appendChild(barLetterBuilder(letter, letterSize, isFocus))
+    arrowBody.appendChild(barLetterBuilder(letter, stickerHeight, isFocus))
     return(arrowBody)
 }
 
 const arrowTipBuilder = (width, color, isFocus) => {
     let arrowTip = document.createElement("div")
-    arrowTip.classList.add("toto-arrowTip")
+    arrowTip.classList.add("dpeGes-arrow-tip")
     arrowTip.style.width = width + "px" // link this to the height input
     let styleStroke = "none"
     if (isFocus) {
@@ -134,58 +141,59 @@ const arrowTipBuilder = (width, color, isFocus) => {
     return(arrowTip)
 }
 
-const legendBuilder = (dpeValue, gesValue) => {
+const legendBuilder = (dpeValue, gesValue, stickerHeight) => {
     let legendContainer = document.createElement("div")
-    legendContainer.classList.add("dpeGes-legendContainer")
-    legendContainer.appendChild(dpeLegendBuilder(dpeValue))
-    legendContainer.appendChild(gesLegendBuilder(gesValue))
+    legendContainer.classList.add("dpeGes-focus-legend-container")
+    legendContainer.appendChild(dpeGesLegendBuilder("dpe", dpeValue, stickerHeight))
+    legendContainer.appendChild(dpeGesLegendBuilder("ges", gesValue, stickerHeight))
     return(legendContainer)
 }
 
-const dpeLegendBuilder = (value) => {
-    let dpeLegendContainer = document.createElement("div")
-    dpeLegendContainer.classList.add("dpeGes-dpeGesLegendContainer")
+const dpeGesLegendBuilder = (type, value, stickerHeight) => {
+    let topFontSize = stickerHeight / 53
+    let bottomFontSize = stickerHeight / 48
+    let valueFontSize = stickerHeight / 12
+    const dpeData = {
+        topInfoSpan: "consommation",
+        bottomInfoSpan: `kWh/m<sup>2</sup>.an`
+    }
+    const gesData = {
+        topInfoSpan: "émissions",
+        bottomInfoSpan: `kgCO<sub>2</sub>/m<sup>2</sup>.an`
+    }
+    let data = {}
+    if (type === "dpe") {
+        data = dpeData
+    } else if (type === "ges") {
+        data = gesData
+    }
+    let container = document.createElement("div")
+    container.classList.add("dpeGes-focus-dpeGes-legend-container")
     let bottomInfo = document.createElement("span")
-    bottomInfo.innerHTML = `kWh/m<sup>2</sup>.an`
-    bottomInfo.style.fontSize = "12px"
-    dpeLegendContainer.appendChild(bottomInfo)
+    bottomInfo.innerHTML = data.bottomInfoSpan
+    bottomInfo.classList.add("dpeGes-focus-dpeGes-legend-top-bottom-info")
+    bottomInfo.style.fontSize = bottomFontSize + "px"
+    container.appendChild(bottomInfo)
     let topInfo = document.createElement("span")
-    topInfo.style.fontSize = "11px"
-    topInfo.style.paddingTop = "5px"
-    topInfo.innerHTML = "consommation"
-    dpeLegendContainer.appendChild(topInfo)
+    topInfo.classList.add("dpeGes-focus-dpeGes-legend-top-bottom-info")
+    topInfo.style.fontSize = topFontSize + "px"
+    topInfo.innerHTML = data.topInfoSpan
+    container.appendChild(topInfo)
     let legendValue = document.createElement("span")
-    legendValue.style.fontSize = "45px"
+    legendValue.classList.add("dpeGes-focus-dpeGes-legend-value")
+    legendValue.style.fontSize = valueFontSize + "px"
     legendValue.innerHTML = value
-    legendValue.style.paddingTop = "10px"
-    dpeLegendContainer.appendChild(legendValue)
-    return(dpeLegendContainer)
+    container.appendChild(legendValue)
+    return(container)
 }
-const gesLegendBuilder = (value) => {
-    let gesLegendContainer = document.createElement("div")
-    gesLegendContainer.classList.add("dpeGes-dpeGesLegendContainer")
-    let bottomInfo = document.createElement("span")
-    bottomInfo.innerHTML = `kgCO<sub>2</sub>/m<sup>2</sup>.an`
-    bottomInfo.style.fontSize = "12px"
-    gesLegendContainer.appendChild(bottomInfo)
-    let topInfo = document.createElement("span")
-    topInfo.style.fontSize = "11px"
-    topInfo.style.paddingTop = "5px"
-    topInfo.innerHTML = "émissions"
-    gesLegendContainer.appendChild(topInfo)
-    let legendValue = document.createElement("span")
-    legendValue.style.fontSize = "45px"
-    legendValue.innerHTML = value
-    legendValue.style.paddingTop = "10px"
-    gesLegendContainer.appendChild(legendValue)
-    return(gesLegendContainer)
-} //regroup geslegend and dpe legend into one maybe ?
 
-const dpeGesv2 = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, }) => {
+
+const dpeGesv2 = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, stickerHeight: stickerHeight }) => {
     let containerElement = document.getElementById(containerId)
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("dpeGes-main-container")
-    mainContainer.appendChild(barsGenerator(dpeValue, gesValue))
+    mainContainer.style.height = stickerHeight + "px"
+    mainContainer.appendChild(barsGenerator(dpeValue, gesValue, stickerHeight))
     containerElement.appendChild(mainContainer)
 }
 
