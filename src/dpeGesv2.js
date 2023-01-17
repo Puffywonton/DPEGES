@@ -16,7 +16,6 @@ const barLetterBuilder = (letter, stickerHeight, isFocus) => {
         fontSize = (stickerHeight / 5)
         barLetter.classList.add("dpeGes-bar-letter-focus")
     }
-    console.log(fontSize)
     barLetter.style.fontSize = fontSize + "px"
     return(barLetter)
 }
@@ -117,7 +116,7 @@ const arrowBodyBuilder = (width, color, letter, stickerHeight, isFocus) => {
 const arrowTipBuilder = (width, color, isFocus) => {
     let arrowTip = document.createElement("div")
     arrowTip.classList.add("dpeGes-arrow-tip")
-    arrowTip.style.width = width + "px" // link this to the height input
+    arrowTip.style.width = width + "px"
     let styleStroke = "none"
     if (isFocus) {
        styleStroke = "black"
