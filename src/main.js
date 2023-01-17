@@ -1,5 +1,5 @@
 import { dpeGesDemoInit } from './dpeGesDemoInit'
-import dpeGesv2 from "./dpeGesv2"
+import dpeGesv2 from "./dpeGes"
 document.querySelector('#app').innerHTML = `
     <div class="wrapper">
         <h1>Générateur d'étiquettes DPE/GES</h1>

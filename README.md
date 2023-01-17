@@ -17,7 +17,6 @@ dpeGes({
   containerId: "dpeGesDemoContainer",
   dpeValue: 56,
   gesValue: 98,
-  containerWidth: 600,
   containerHeight: 600,
 });
 ```
@@ -25,10 +24,9 @@ dpeGes({
 | Input    | Description                      |
 | -------- | -------------------------------- |
 | id       | Id du div container du graphique |
-| width    | Largeur du graphique             |
-| height   | Hauteur du graphique             |
 | dpeValue | Valeur du DPE                    |
 | gesValue | Valeur des GES                   |
+| height   | Hauteur du graphique             |
 
 ## Utilisation
 
@@ -47,8 +45,8 @@ HTML
 JAVASCRIPT
 
 ```js
-import "dpeges/dist/style.css";
-import dpeGes from "dpeges";
+import "dpeges/dist/dpeGes.css";
+import dpeGes from "dpeGesv2";
 
 // ...
 
@@ -56,7 +54,6 @@ dpeGes({
   containerId: "dpeGesDemoContainer",
   dpeValue: 56,
   gesValue: 98,
-  containerWidth: 600,
   containerHeight: 600,
 });
 ```

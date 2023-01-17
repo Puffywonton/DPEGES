@@ -187,7 +187,7 @@ const dpeGesLegendBuilder = (type, value, stickerHeight) => {
 }
 
 
-const dpeGesv2 = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, stickerHeight: stickerHeight }) => {
+const dpeGes = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesValue, stickerHeight: stickerHeight }) => {
     let containerElement = document.getElementById(containerId)
     let mainContainer = document.createElement("div");
     mainContainer.classList.add("dpeGes-main-container")
@@ -196,4 +196,4 @@ const dpeGesv2 = ({containerId: containerId, dpeValue: dpeValue, gesValue: gesVa
     containerElement.appendChild(mainContainer)
 }
 
-export default dpeGesv2
+export default dpeGes

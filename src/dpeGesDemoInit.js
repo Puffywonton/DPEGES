@@ -1,5 +1,5 @@
 import download from "downloadjs"
-import dpeGesv2 from "./dpeGesv2"
+import dpeGes from "./dpeGes"
 import * as htmlToImage from 'html-to-image';
 import "./scss/demo.scss"
 
@@ -30,7 +30,7 @@ const launchDpeGes = (demoContainer, dpeValue, gesValue, heightValue) => {
     if (dpeGesDemoContainer.childNodes.length != 0) {
         dpeGesDemoContainer.removeChild(dpeGesDemoContainer.firstElementChild)
     }
-    dpeGesv2({ containerId: demoContainer, dpeValue: dpeValue, gesValue: gesValue, stickerHeight: heightValue })
+    dpeGes({ containerId: demoContainer, dpeValue: dpeValue, gesValue: gesValue, stickerHeight: heightValue })
     initDownloadOption()
 }
 
