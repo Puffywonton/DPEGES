@@ -13,4 +13,5 @@ export default {
         fileName: (format) => `dpeges.${format}.js`,
       }
     }
-  }
+}
+  
