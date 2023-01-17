@@ -1,16 +1,21 @@
 import download from "downloadjs"
-import dpeGes from "./dpeGes"
 import dpeGesv2 from "./dpeGesv2"
 import * as htmlToImage from 'html-to-image';
 import "./scss/demo.scss"
 
+const dateGenerator = () => {
+    let currentDate = new Date().toJSON().slice(0, 19);
+    return(currentDate)
+}
+
 const initDownloadOption = () => {
+    let date = dateGenerator()
     let downloadButton = document.getElementById("downloadButton")
     downloadButton.addEventListener("click", (e) => {
         const frame = document.getElementById("dpeGesDemoContainer")
         htmlToImage.toPng(frame)
             .then(function (dataUrl) {
-                download(dataUrl, "dpeGes.png")
+                download(dataUrl, date+"dpeGes.png")
             })
             .catch(function (error) {
                 alert("error")
