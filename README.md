@@ -14,10 +14,10 @@ NPM package : https://www.npmjs.com/package/dpeges
 
 ```js
 dpeGes({
-  containerId: "dpeGesDemoContainer",
+  containerId: "containerName",
   dpeValue: 56,
   gesValue: 98,
-  containerHeight: 600,
+  stickerHeight: 600,
 });
 ```
 
@@ -39,22 +39,22 @@ npm i dpeges
 HTML
 
 ```html
-<div id="dpeGesDemoContainer"></div>
+<div id="containerName"></div>
 ```
 
 JAVASCRIPT
 
 ```js
-import "dpeges/dist/dpeGes.css";
-import dpeGes from "dpeGesv2";
+import "dpeges/dist/style.css";
+import dpeGes from "dpeges";
 
 // ...
 
 dpeGes({
-  containerId: "dpeGesDemoContainer",
+  containerId: "containerName",
   dpeValue: 56,
   gesValue: 98,
-  containerHeight: 600,
+  stickerHeight: 600,
 });
 ```
 
