@@ -57,6 +57,7 @@ dpeGes({
   stickerHeight: 600,
 });
 ```
+le sticker est responsive de 375px (width) jusqu'à l'infini (testé jusqu'à 3000px).
 
 ## Development
 
