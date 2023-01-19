@@ -1,6 +1,6 @@
 {
   "name": "dpeges",
-  "version": "1.0.6",
+  "version": "1.0.10",
   "type": "module",
   "description": "Générateur DPE GES en javascript",
   "scripts": {
@@ -34,6 +34,10 @@
     ".": {
       "import": "./dist/dpeges.es.js",
       "require": "./dist/dpeges.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   }
 }
