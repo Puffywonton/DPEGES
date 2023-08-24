@@ -3,21 +3,65 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+body{
+  background-color: #dcdcdc;
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper{
   max-width: 1024px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  height: 100vh;
 }
 
 h1 {
+  font-size: 3rem;
   text-align: center;
+  margin: 0;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
-.github-fork-me {
-  position: absolute;
-  right: 0;
-  top: 0;
+
+.parameter-container{
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
+
+.dpe-ges-params-container{
+  display: flex;
+}
+
+.params-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+
+
+.form-box{
+  // width: 50%;
+  // background-color: red;
+  // display: flex;
+  // flex-direction: column;
+}
+
+.span-title{
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+
 
 .dpeges-demo-container {
   border: 1px solid black;
@@ -25,53 +69,32 @@ h1 {
 }
 
 .preview-container {
+  padding: 2rem 0 2rem 0;
+  margin: auto;
   width: 50%;
   @media only screen and (max-width: 1024px){
   width: 100%;
   }  
 }
 
-.params-container {
-  border: 1px solid black;
-  height: 300px;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  @media only screen and (max-width: 1024px){
-  width: 100%;
-  }
-}
-
-.params-form {
-  height: 200px;
-  // background-color: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  & div{
-    padding-bottom: 20px;
-  }
-}
-
-.sticker-generator-container{
-  display: flex;
-  justify-content: space-evenly;
-  @media only screen and (max-width: 1024px){
-    flex-direction: column;
-  }
-}
-
 .button {
-  width: 100%;
+  background-color: #E0E0E0;
+  margin: .5rem auto .5rem auto;
+  width: 100px;
   height: 50px;
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 30px;
+  border-radius: 10px;
+  border: none;
   &:hover{
     background-color: lightblue;}
 }
+
+.download-button{
+  background-color: white;
+}
+
 .instructions{
   font-size: 1.5rem;
 }
+

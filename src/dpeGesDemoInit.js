@@ -44,6 +44,8 @@ export function dpeGesDemoInit() {
         let gesValue = document.getElementById('gesInput').value
         let heightValue = document.getElementById('heightInput').value
         launchDpeGes("dpeGesDemoContainer", dpeValue, gesValue, heightValue)
+        window.scrollTo(0, document.body.scrollHeight);
     })
     launchDpeGes("dpeGesDemoContainer", 12, 50, 600)    
+    
 }
