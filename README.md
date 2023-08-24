@@ -1,7 +1,7 @@
 # DPE GES
 
 <p align="center">
-<img src="https://github.com/puffywonton/DPEGES/blob/main/public/dpeGes.png?raw=true" width="300">
+<img src="https://github.com/puffywonton/DPEGES/blob/main/src/public/dpeGes.png?raw=true" width="300">
 </p>
 
 ## Générateur de graphique DPE GES
