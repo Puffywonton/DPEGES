@@ -12,6 +12,8 @@ Démo : https://puffywonton.github.io/DPEGES/
 
 NPM package : https://www.npmjs.com/package/dpeges
 
+
+
 ## Documentation
 
 ```js
@@ -59,8 +61,12 @@ dpeGes({
   stickerHeight: 600,
 });
 ```
-l'étiquette est responsive de 375px (width) jusqu'à l'infini (testé jusqu'à 3000px).
+L'étiquette est responsive de 375px (width) jusqu'à l'infini (testé jusqu'à 3000px).
+
 La hauteur doit être défini dans les paramètres (il est recommandé de rester au dessus de 500px pour que l'étiquette reste lisible)
+
+Les specs énergétiques utilisées proviennent de: https://www.ecologie.gouv.fr/diagnostic-performance-energetique-dpe 
+
 
 ## Development
 
