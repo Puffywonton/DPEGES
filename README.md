@@ -4,7 +4,9 @@
 <img src="https://github.com/puffywonton/DPEGES/blob/main/src/public/dpeGes.png?raw=true" width="300">
 </p>
 
-## Générateur de graphique DPE GES
+## Générateur d'étiquettes DPE/GES
+
+Ce module npm a été conçu pour simplifier le processus de création d'étiquettes énergétiques réactives pour les applications Web. il génère automatiquement des étiquettes énergétiques au chargement de la page. Grâce à sa conception réactive, les étiquettes s'adaptent sans effort à différentes tailles d'écran, garantissant ainsi que votre contenu s'affiche parfaitement sur desktop et mobile.
 
 Démo : https://puffywonton.github.io/DPEGES/
 
@@ -57,7 +59,8 @@ dpeGes({
   stickerHeight: 600,
 });
 ```
-le sticker est responsive de 375px (width) jusqu'à l'infini (testé jusqu'à 3000px).
+l'étiquette est responsive de 375px (width) jusqu'à l'infini (testé jusqu'à 3000px).
+La hauteur doit être défini dans les paramètres (il est recommandé de rester au dessus de 500px pour que l'étiquette reste lisible)
 
 ## Development
 

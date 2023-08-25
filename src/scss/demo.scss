@@ -26,8 +26,12 @@ h1 {
   padding-bottom: 2rem;
 }
 
+.intro{
+  padding: 1rem;
+}
+
+
 .parameter-container{
-  width: 100%;
   background-color: white;
   border-radius: 20px;
   padding: 1rem;
@@ -35,24 +39,19 @@ h1 {
   flex-direction: column;
 }
 
-.dpe-ges-params-container{
+.params-input-parent-container{
   display: flex;
+  justify-content: center;
+  @media only screen and (max-width: 810px){
+    flex-direction: column;
+    align-items: center;
+  } 
 }
 
 .params-input-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
-}
-
-
-
-.form-box{
-  // width: 50%;
-  // background-color: red;
-  // display: flex;
-  // flex-direction: column;
 }
 
 .span-title{
@@ -61,7 +60,9 @@ h1 {
   padding-bottom: 0.5rem;
 }
 
-
+.reglage-box{
+  padding-bottom: 0.5rem
+}
 
 .dpeges-demo-container {
   border: 1px solid black;
@@ -72,7 +73,7 @@ h1 {
   padding: 2rem 0 2rem 0;
   margin: auto;
   width: 50%;
-  @media only screen and (max-width: 1024px){
+  @media only screen and (max-width: 810px){
   width: 100%;
   }  
 }
@@ -91,6 +92,7 @@ h1 {
 }
 
 .download-button{
+  margin-top: 2rem;
   background-color: white;
 }
 

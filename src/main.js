@@ -1,26 +1,30 @@
 import { dpeGesDemoInit } from './dpeGesDemoInit'
 document.querySelector('#app').innerHTML = `
     <div class="wrapper">
-        <h1>Générateur d'étiquettes DPE/GES</h1>
+        <h1>Démo du Générateur d'étiquettes DPE/GES</h1>
+        <div class="intro">Cette page est une démonstration d’un module npm générant des étiquettes énergétiques. Il a été conçu pour simplifier le processus de création d'étiquettes énergétiques réactives pour les applications Web. Ce module génère automatiquement des étiquettes énergétiques au chargement de la page. Grâce à sa conception réactive, les étiquettes s'adaptent sans effort à différentes tailles d'écran, garantissant ainsi que votre contenu s'affiche parfaitement sur desktop et mobile.</div>
         <div class="parameter-container">
-            <div id="params" class="dpe-ges-params-container">
+            <div id="params" class="params-input-parent-container">
                 <div class="params-input-container">
                     <span class="span-title">DPE - Performance énergétique</span>
-                    <div class="form-box">
+                    <div>
                         <label for="dpeInput">Valeur kWhep/m²/an</label>
                         <input type="text" value="12" id="dpeInput" size="5"></input>
                     </div>
                 </div>
                 <div class="params-input-container">
                     <span class="span-title">GES - Performance climatique</span>
-                    <div class="form-box">
+                    <div>
                         <label for="gesInput">Valeur Kg CO₂/m²/an</label>
                         <input type="text" value="50" id="gesInput" size="5"></input>
                     </div>
                 </div>
                 <div class="params-input-container">
-                    <span class="span-title">Réglage</span>
-                    <div class="form-box">
+                    <div class="reglage-box">
+                        <span class="span-title">Réglage</span>
+                        <span>(Optionnel)</span>
+                    </div>
+                    <div>
                         <label for="heightInput">Hauteur</label>
                         <input type="text" value="600" id="heightInput" size="5"></input>
                     </div>            
