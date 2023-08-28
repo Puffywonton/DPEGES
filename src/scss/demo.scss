@@ -76,7 +76,7 @@ h1 {
 
 .dpeges-demo-container {
   border: 1px solid black;
-  width: 40%;
+  width: 100%;
 }
 
 .preview-container {
@@ -104,4 +104,10 @@ h1 {
 
 .instructions{
   font-size: 1.5rem;
+}
+
+.responsive-slider-container{
+  @media only screen and (max-width: 810px){
+    display: none;
+  } 
 }
