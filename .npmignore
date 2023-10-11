@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 # dist
+dist/google88915675970c711b.html
 dist-ssr
 *.local
 
@@ -22,4 +23,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-./dist/google88915675970c711b.html
