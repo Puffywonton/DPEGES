@@ -1,6 +1,6 @@
 {
   "name": "dpeges",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "description": "Générateur DPE GES en javascript",
   "scripts": {
