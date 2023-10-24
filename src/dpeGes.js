@@ -2,7 +2,7 @@ import "./scss/dpeGes.scss"
 import dpeGesData from "./dpeGesData"
 
 const isFocusChecker = (dpeValue, dpeMin, dpeMax, gesValue, gesMin, gesMax) => {
-    if (((dpeValue >= dpeMin && dpeValue <= dpeMax) && gesValue <= gesMax) || ((gesValue >= gesMin && gesValue <= gesMax) && dpeValue <= gesMax)) {
+    if (((dpeValue >= dpeMin && dpeValue <= dpeMax) && gesValue <= gesMax) || ((gesValue >= gesMin && gesValue <= gesMax) && dpeValue <= dpeMax)) {
         return(true)
     } 
 }
